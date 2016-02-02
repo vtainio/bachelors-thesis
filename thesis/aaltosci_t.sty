@@ -1,0 +1,336 @@
+\ProvidesPackage{aaltosci_t}[2011/02/01 v1.02 TIK.kand style]
+% Muokattu aiemmista versioista tkk_t.sty käsin 27.1.2011.
+% Pakettien käsittely (Latex companion 2ed., s. 877).
+% Jukka Parviainen, parvi@tkk.fi.
+%
+% Korjaus 1.2.2011: lisätty ENDEPT
+%
+% Korjaus 1.2.2011: sivunumerointi alas keskelle
+
+\DeclareOption{finnish}{
+\def\AALTO{\AALTOFI}
+\def\THESIS{\THESISFI}
+\def\LANG{Finnish}
+}
+\DeclareOption{swedish}{
+\def\AALTO{\AALTOSV}
+\def\THESIS{\THESISSV}
+\def\LANG{Swedish}
+}
+\DeclareOption{english}{
+\def\AALTO{\AALTOEN}
+\def\THESIS{\THESISEN}
+\def\LANG{English}
+}
+
+% Ajaa ja prosessoi koodin listalla olevien optioiden suhteen. 
+% Eli jos ei main.tex:ssä anneta optiota, niin nimiölehti suomeksi.
+\ExecuteOptions{finnish}
+\ProcessOptions
+
+% Lataa seuraavat paketit
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{natbib}   
+\RequirePackage[english,swedish,finnish]{babel}
+
+% ------------------- Tavallisen sivun muotoilu -----------------------
+
+% Mittayksiköt:
+% ex    x-kirjaimen koko kyseisellä fontilla
+% em    M-kirjaimen koko kyseisellä fontilla
+% 12pt  fonttikoko: '(' on korkein kirjain, joka on noin 12 pt
+% pt    = in/72,27 = 25,4mm/72,27
+% pc    = 12pt
+ 
+% Kelluvien elementtien (kuva, taulukko) käsittelyyn liittyviä
+% parametreja (Latex companion 2ed, s. 284).
+%
+% Kuva voi viedä maksimissaan 95% sivusta (jääkö tekstirivejä lainkaan?).
+% Oletus 0.7 (70 %):
+\renewcommand{\topfraction}{0.95}
+% Tekstiä tulee olla vähintään 5% sivusta. Oletus 0.2:
+\renewcommand{\textfraction}{0.05}
+
+% Kappaleiden erottaminen ja sisennys
+\parskip 1ex
+\parindent 0pt
+
+% Sivun leveys: vasen marginaali on yhden tuuman + \hoffset (nolla).
+\evensidemargin 0mm
+\oddsidemargin 0mm
+\textwidth 159.2mm
+% Nyt varsinainen tekstiosan leveys eli \textwidth 
+%  on 210 mm - 2*25.4mm = 159.2mm. [s. 85 LaTeX Companion 1ed]
+
+% Sivun varsinainen tekstiosan korkeus eli \textheigth:
+% 
+% Sivunumero alas:
+% 297mm - 2*25.4mm = 246.2mm.
+\topmargin 0mm
+\headheight 0mm
+\headsep 0mm
+\textheight 246.2mm
+%
+% Sivunumero ylös:
+% 297mm - 2*25.4mm =246.2mm.
+% header-rivi laitetaan ylämarginaaliin siten että
+%  -topmargin == headheight (sivunumerolle) + headsep
+%\topmargin -2em
+%\headheight 1em
+%\headsep 1em
+%\textheight 246.2mm
+
+% plain-sivutyylin uudelleenmäärittely:
+% Halutaan sivunumero headerin ulkoreunaan, vaatii 'twoside' documentclass
+%\renewcommand{\ps@plain}{%
+% \renewcommand{\@oddhead}{\hfil\textrm{\thepage}}%
+% \renewcommand{\@evenhead}{\textrm{\thepage}\hfil}%
+% \renewcommand{\@oddfoot}{}%
+% \renewcommand{\@evenfoot}{}}
+%
+% Halutaan sivunumero headerin keskelle
+%\renewcommand{\ps@plain}{%
+% \renewcommand{\@oddhead}{\hfil\textrm{\thepage}\hfil}%
+% \renewcommand{\@evenhead}{\@oddhead}%
+% \renewcommand{\@oddfoot}{}%
+% \renewcommand{\@evenfoot}{}}
+%
+% Halutaan sivunumero headerin oikeaan yläreunaan
+%\renewcommand{\ps@plain}{%
+% \renewcommand{\@oddhead}{\hfil\textrm{\thepage}}%
+% \renewcommand{\@evenhead}{\@oddhead}%
+% \renewcommand{\@oddfoot}{}%
+% \renewcommand{\@evenfoot}{}}
+%
+% - oletusarvo, sivunumero footerin keskelle:
+%  kommentoi ylläoleva korjaus pois. Toisin sanoen,
+%  \renewcommand{\@oddfoot}{\hfil\textrm{\thepage}\hfil}%
+
+
+% ----------------- Muuttujia -----------------------------------------
+
+\def\AALTOFI{Aalto-yliopisto \\ 
+Perustieteiden korkeakoulu \\
+Tietotekniikan koulutusohjelma \\}
+\def\AALTOSV{Aalto-universitetet \\ 
+Högskolan för teknikvetenskaper \\
+Examensprogrammet för datateknik \\}
+\def\AALTOEN{Aalto University \\ 
+School of Science \\
+Degree Program of Computer Science and Engineering \\}
+
+\def\THESISFI{Kandidaatintyö}
+\def\THESISSV{Kandidatarbete}
+\def\THESISEN{Bachelor's Thesis}
+
+\def\YEAR#1{\gdef\@YEAR{#1}}
+\gdef\@YEAR{}
+\def\DEPT#1{\gdef\@DEPT{#1}}
+\gdef\@DEPT{}
+\def\ENDEPT#1{\gdef\@ENDEPT{#1}}
+\gdef\@ENDEPT{}
+\def\TITLE#1{\gdef\@TITLE{#1}}
+\gdef\@TITLE{\@title}
+\def\ENTITLE#1{\gdef\@ENTITLE{#1}}
+\gdef\@ENTITLE{}
+\def\DATE#1{\gdef\@DATE{#1}}
+\gdef\@DATE{\today}
+\def\ENDATE#1{\gdef\@ENDATE{#1}}
+\gdef\@ENDATE{\today}
+\def\PAGES#1{\gdef\@PAGES{#1}}
+\gdef\@PAGES{}
+\def\SUPERVISOR#1{\gdef\@SUPERVISOR{#1}}
+\gdef\@SUPERVISOR{}
+\def\ENSUPERVISOR#1{\gdef\@ENSUPERVISOR{#1}}
+\gdef\@ENSUPERVISOR{}
+\def\INSTRUCTOR#1{\gdef\@INSTRUCTOR{#1}}
+\gdef\@INSTRUCTOR{}
+\def\ENINSTRUCTOR#1{\gdef\@ENINSTRUCTOR{#1}}
+\gdef\@ENINSTRUCTOR{}
+\def\PAAAINE#1{\gdef\@PAAAINE{#1}}
+\gdef\@PAAAINE{}
+\def\ENPAAAINE#1{\gdef\@ENPAAAINE{#1}}
+\gdef\@ENPAAAINE{}
+\def\CODE#1{\gdef\@CODE{#1}}
+\gdef\@CODE{}
+\def\KEYWORDS#1{\gdef\@KEYWORDS{#1}}
+\gdef\@KEYWORDS{}
+\def\ENKEYWORDS#1{\gdef\@ENKEYWORDS{#1}}
+\gdef\@ENKEYWORDS{}
+
+% -------------- Nimiösivun asemointi ---------------------------------
+%
+\def\maketitle{\begin{titlepage}%
+  \let\footnotesize\small
+  \let\footnoterule\relax
+  \let \footnote \thanks
+  {\AALTO}
+  \vskip 20mm
+  \begin{center}%
+    \LARGE \bf \@title \par
+  \vskip 20mm
+    \Large \bf \THESIS \par
+  \vskip 20mm
+    \@DATE \par
+  \vskip 40mm
+    \LARGE \bf \@author
+  \end{center}
+  \par
+  \vfill
+% {\small 
+%   Jätetty tarkistettavaksi tekniikan kandidaatintutkielmaa varten \@DATE.}
+%
+%%  {\small
+%%    \@DEPT \\
+%%    Espoo \@YEAR }
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\and\relax
+}                                                                               
+
+% -------------- Tiivistelmäsivun asemointi ---------------------------
+
+% Tiivistelmälaatikon leveys 159.2mm, jolloin tabularissa
+% leveydeksi 159.2mm -12pt(==4.22mm) (-0.8pt==0.28mm)=154.7mm
+% \arrayrulewidth    dflt 0.4pt (incl./excl. array package?)
+% \tabcolsep         dflt 6pt (minusta 3pt?)
+%
+% "Ongelmia" parboxin useampirivisissä: viritelty
+%    \parbox[t][\height+4pt]{117.7mm}.
+
+\newenvironment{fiabstract}{
+\begin{otherlanguage}{finnish}
+\makebox[90mm][l]{Aalto-yliopisto}%
+\makebox[69.2mm][r]{KANDIDAATINTYÖN} \\
+\makebox[90mm][l]{Perustieteiden korkeakoulu}%
+\makebox[69.2mm][r]{TIIVISTELMÄ}\\
+\makebox[90mm][l]{Tietotekniikan koulutusohjelma} 
+\vskip 1mm
+\begin{tabular}{|p{154.7mm}|}
+\hline
+\makebox[37mm][l]{\bf Tekijä:}%
+\parbox[t][\height+4pt]{117.7mm}{\@author \par} \\
+\hline
+\makebox[37mm][l]{\bf Työn nimi:}%
+\parbox[t][\height+4pt]{117.7mm}{\@TITLE \par} \\
+\hline
+\makebox[37mm][l]{\bf Päiväys:}\@DATE \\
+\hline
+\makebox[37mm][l]{\bf Sivumäärä:}\@PAGES \\
+\hline
+\makebox[37mm][l]{\bf Pääaine:}\@PAAAINE \\
+\makebox[37mm][l]{\bf Koodi:}\@CODE \\
+\hline
+\makebox[37mm][l]{\bf Vastuuopettaja:}\@SUPERVISOR \\
+\makebox[37mm][l]{\bf Työn ohjaaja(t):}%
+\parbox[t][\height+4pt]{117.7mm}{\@INSTRUCTOR \ (\@DEPT) \par} \\
+\hline
+\begin{minipage}{154.7mm}
+\parskip 1ex
+\vskip-1ex
+\vspace{1em}}
+{
+\vspace{1em}
+\end{minipage}\\
+\hline
+\makebox[37mm][l]{\bf Avainsanat:}%
+\parbox[t][\height+4pt]{117.7mm}{\@KEYWORDS \par}\\
+\hline 
+\makebox[37mm][l]{\bf Kieli:}Suomi \\
+\hline
+\end{tabular}
+\end{otherlanguage}
+\clearpage}
+
+\newenvironment{svabstract}{
+\begin{otherlanguage}{swedish}
+\makebox[90mm][l]{Aalto-universitetet}%
+\makebox[69.2mm][r]{SAMMANDRAG AV} \\
+\makebox[90mm][l]{Högskolan för teknikvetenskaper}%
+\makebox[69.2mm][r]{KANDIDATARBETET}\\
+\makebox[90mm][l]{Examensprogrammet för datateknik}
+\vskip 1mm
+\begin{tabular}{|p{154.7mm}|}
+\hline
+\makebox[37mm][l]{\bf Utfört av:}%
+\parbox[t][\height+4pt]{117.7mm}{\@author \par} \\
+\hline
+\makebox[37mm][l]{\bf Arbetets namn:}%
+\parbox[t][\height+4pt]{117.7mm}{\@TITLE \par} \\
+\hline
+\makebox[37mm][l]{\bf Datum:}\@DATE \\
+\hline
+\makebox[37mm][l]{\bf Sidoantal:}\@PAGES \\
+\hline
+\makebox[37mm][l]{\bf Huvudämne:}\@PAAAINE \\
+\makebox[37mm][l]{\bf Kod:}\@CODE \\
+\hline
+\makebox[37mm][l]{\bf Övervakare:}\@SUPERVISOR \\
+\makebox[37mm][l]{\bf Handledare:}%
+\parbox[t][\height+4pt]{117.7mm}{\@INSTRUCTOR \ (\@DEPT) \par} \\
+\hline
+\begin{minipage}{154.7mm}
+\parskip 1ex
+\vskip-1ex
+\vspace{1em}}
+{
+\vspace{1em}
+\end{minipage}\\
+\hline
+\makebox[37mm][l]{\bf Nyckelord:}%
+\parbox[t][\height+4pt]{117.7mm}{\@KEYWORDS \par}\\
+\hline
+\makebox[37mm][l]{\bf Språk:}Svenska \\
+\hline
+\end{tabular}
+\end{otherlanguage}
+\clearpage}
+
+
+\newenvironment{enabstract}{
+\begin{otherlanguage}{english}
+\makebox[90mm][l]{Aalto University}%
+\makebox[69.2mm][r]{ABSTRACT OF} \\
+\makebox[90mm][l]{School of Science}%
+\makebox[69.2mm][r]{BACHELOR'S THESIS}\\
+\makebox[90mm][l]{Degree Program of Computer Science and Engineering } 
+\vskip 1mm
+\begin{tabular}{|p{154.7mm}|}
+\hline
+\makebox[37mm][l]{\bf Author:}%
+\parbox[t][\height+4pt]{117.7mm}{\@author \par} \\
+\hline
+\makebox[37mm][l]{\bf Title of thesis:}%
+\parbox[t][\height+4pt]{117.7mm}{\@ENTITLE \par} \\   
+\hline
+\makebox[37mm][l]{\bf Date:}\@ENDATE \\
+\hline
+\makebox[37mm][l]{\bf Pages:}\@PAGES \\
+\hline
+\makebox[37mm][l]{\bf Major:}\@PAAAINE \\
+\makebox[37mm][l]{\bf Code:}\@CODE \\
+\hline
+\makebox[37mm][l]{\bf Supervisor:}\@ENSUPERVISOR \\
+\makebox[37mm][l]{\bf Instructor:}%
+\parbox[t][\height+4pt]{117.7mm}{\@ENINSTRUCTOR \ (\@ENDEPT) \par} \\
+\hline
+\begin{minipage}{154.7mm}
+\parskip 1ex
+\vskip-1ex
+\vspace{1em}}
+{
+\vspace{1em}
+\end{minipage}\\
+\hline
+\makebox[37mm][l]{\bf Keywords:}%
+\parbox[t][\height+4pt]{117.7mm}{\@ENKEYWORDS \par} \\
+\hline
+\makebox[37mm][l]{\bf Language:}\LANG \\
+\hline
+\end{tabular}
+\end{otherlanguage}
+\clearpage}

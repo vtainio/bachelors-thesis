@@ -1,0 +1,176 @@
+% ----------------- joitakin makroja ----------------------------------
+%
+% \newcommand{\sinunKomentosi}[argumenttienMäärä]{komennot%
+% voiJakaaRiveille%
+% jaArgumenttienViittaus#1,#2,#argumenttienMäärä}
+
+% Joskus voi olla tarpeen kommentoida jotakin. Ei suositella. 
+% Äläkä unohda lopulliseen! 
+\newcommand{\Kommentti}[1]{\fbox{\textbf{OMA KOMMENTTI:} #1}}
+% Käyttö: Kilometri on 1024 metriä. \Kommentti{varmista tämä vielä}.
+% Eli newcommand:n komentosanan jälkeen hakasaluissa argumenttien lkm,
+%  ja argumentteihin viitataa #1, #2, ...
+
+%  Comment out this \DRAFT macro if this version no longer is one!  XXX
+%\newcommand{\DRAFT}{\begin{center} {\it DRAFT! \hfill --- \hfill DRAFT!
+%\hfill --- \hfill DRAFT! \hfill --- \hfill DRAFT!}\end{center}}
+
+%  Use this \DRAFT macro in the final version - or comment out the 
+%  draft-command
+% \newcommand{\DRAFT}{~}
+
+% %%%%%%%% MATEMATIIKKA %%%%%%%%%%%%%%%%%
+
+% Määrätty integraali
+\newcommand{\myInt}[4]{%
+\int_{#1}^{#2} #3 \, \textrm{d}{#4}}
+
+% http://kapsi.fi/jks/satfaq/
+%\newcommand{\vii}{\mathop{\Big/}}
+%\newcommand{\viiva}[2]{\vii\limits_{\!\!\!\!{#1}}^{\>\,{#2}}}
+%%\[ \intop_0^{10} \frac{x}{x^2+1} \,\mathrm{d}x
+%%= \viiva{0}{10} \frac{1}{2}\ln(x^2+1) \]
+
+% matht.sty, Simo K. Kivelä, 01.01.2002, 07.04.2004, 19.11.2004, 21.02.2005
+% Kokoelma matemaattisten lausekkeiden kirjoittamista helpottavia
+% määrittelyjä.
+
+% 07.04.2004 Muutama lisäys ja muutos tehty: \ii, \ee, \dd, \der,
+% \norm, \abs, \tr.
+%
+% 19.11.2004 Korjattu määrittelyjä: \re, \im, \norm;
+% lisätty \trp (transponointi), \hrm (hermitointi), \itgr (rakenteellinen
+% integraali), ympäristö Cmatrix (hakasulkumatriisi);
+% vanha transponointi \tr on mukana edelleen, mutta ei suositella.
+
+% Pakotettu rivinvaihto, joka voidaan tarvittaessa määritellä
+% uudelleen: 
+
+%\newcommand{\nl}{\newline}
+
+% Logiikan symboleja (<=> ja =>) hieman muunnettuina:
+
+%\newcommand{\ifftmp}{\;\Leftrightarrow\;}
+%\newcommand{\impltmp}{\DOTSB\;\Rightarrow\;}
+
+% 'siten, että' -lyhenne ja hattupääyhtäläisyysmerkki vastaavuuden
+% osoittamiseen: 
+
+%\newcommand{\se}{\quad \text{siten, että} \quad}
+%\newcommand{\vs}{\ {\widehat =}\ }
+
+% Lukujoukkosymbolit:
+
+%\newcommand{\N}{\ensuremath{\mathbb N}}
+%\newcommand{\Z}{\ensuremath{\mathbb Z}}
+%\newcommand{\Q}{\ensuremath{\mathbb Q}}
+%\newcommand{\R}{\ensuremath{\mathbb R}}
+%\newcommand{\C}{\ensuremath{\mathbb C}}
+
+% Reaali- ja imaginaariosa, imaginaariyksikkö:
+
+%\newcommand{\re}{\operatorname{Re}}
+%\newcommand{\im}{\operatorname{Im}}
+%\newcommand{\ii}{\mathrm{i}}
+
+% Differentiaalin d, Neperin luku:
+
+%\newcommand{\dd}{\mathrm{d}}
+%\newcommand{\ee}{\mathrm{e}}
+
+% Vektorimerkintä, joka voidaan tarvittaessa määritellä uudelleen
+% (tämä tekee vektorit lihavoituina):
+
+%\newcommand{\V}[1]{{\mathbf #1}}
+
+% Kulmasymboli:
+
+%\renewcommand{\angle}{\sphericalangle}
+
+% Vektorimerkintä, jossa päälle pannaan iso nuoli;
+% esimerkiksi \overrightarrow{AB} (tämmöisiä olemassaolevien
+% symbolien uudelleenmäärittelyjä ei kyllä pitäisi tehdä):
+
+%\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% Vektoreiden vastakkaissuuntaisuus:
+
+%\newcommand{\updownarrows}{\uparrow\negthinspace\downarrow}
+
+% Itseisarvot ja normi:
+
+%\newcommand{\abs}[1]{{\left\vert#1\right\vert}}
+%\newcommand{\norm}[1]{{\left\Vert #1 \right\Vert}}
+
+% Transponointi ja hermitointi:
+
+%\newcommand{\trp}[1]{{#1}\sp{\operatorname{T}}}
+%\newcommand{\hrm}[1]{{#1}\sp{\operatorname{H}}}
+
+% Vanha transponointi; jäljellä yhteensopivuussyistä, ei syytä käyttää.
+%\newcommand{\tr}{{}^{\text T}}
+
+% Arcus- ja area-funktiot, jossa päähaara osoitetaan nimen päälle
+% vedetyllä vaakasuoralla viivalla (alkaa olla vanhentunutta,
+% voitaisiin luopua):
+
+%\newcommand{\arccot}{\operatorname{arccot}}
+%\newcommand{\asin}{\operatorname{\overline{arc}sin}}
+%\newcommand{\acos}{\operatorname{\overline{arc}cos}}
+%\newcommand{\atan}{\operatorname{\overline{arc}tan}}
+%\newcommand{\acot}{\operatorname{\overline{arc}cot}}
+
+%\newcommand{\arsinh}{\operatorname{arsinh}}
+%\newcommand{\arcosh}{\operatorname{arcosh}}
+%\newcommand{\artanh}{\operatorname{artanh}}
+%\newcommand{\arcoth}{\operatorname{arcoth}}
+%\newcommand{\acosh}{\operatorname{\overline{ar}cosh}}
+
+% Signum, syt, pyj:
+
+%\newcommand{\sg}{\operatorname{sgn}}
+%\renewcommand{\gcd}{\operatorname{syt}}
+%\newcommand{\lcm}{\operatorname{pyj}}
+
+% Lyhennemerkintöjä: derivaatta, osittaisderivaatta, gradientti,
+% derivaattaoperaattori, vektorin komponentti, integraalin ylä- ja
+% alasumma, Suomessa (ja Saksassa?) käytetty integraalin sijoitus-
+% merkintä, integraali (rakenteellinen määrittely):
+
+%\newcommand{\der}[2]{\frac{\dd #1}{\dd #2}}
+%\newcommand{\osder}[2]{\frac{\partial #1}{\partial #2}}
+%\newcommand{\grad}{\operatorname{grad}}
+%\newcommand{\Df}{\operatorname{D}} 
+%\newcommand{\comp}{\operatorname{comp}}
+%\newcommand{\ys}[1]{\overline S_{#1}}
+%\newcommand{\as}[1]{\underline S_{#1}}
+%\newcommand{\sijoitus}[2]{\biggl/_{\null\hskip-6pt #1}^{\null\hskip2pt #2}} 
+%\newcommand{\itgr}[4]{\int_{#1}^{#2}#3\,\dd #4}
+
+% Matriiseja, joille voidaan antaa alkioiden sijoittamista sarakkeen
+% vasempaan tai oikeaan reunaan tai keskelle osoittava lisäparametri
+% (l, r tai c); ympärillä kaarisulut, hakasulut, pystyviivat (determinantti)
+% tai ei mitään;
+% esimerkiksi \begin{cmatrix}{ll}1 & -1 \\ -1 & 1 \end{cmatrix}:
+
+%\newenvironment{cmatrix}[1]{\left(\begin{array}{#1}}{\end{array}\right)}
+%\newenvironment{Cmatrix}[1]{\left[\begin{array}{#1}}{\end{array}\right]}
+%\newenvironment{dmatrix}[1]{\left|\begin{array}{#1}}{\end{array}\right|}
+%\newenvironment{ematrix}[1]{\begin{array}{#1}}{\end{array}}
+
+% Kaunokirjoitussymboli:
+
+%\newcommand{\Cal}{\mathcal}
+
+% Isokokoinen summa:
+
+%\newcommand{\dsum}[2]{{\displaystyle \sum_{#1}^{#2}}}
+
+% Tuplaintegraali umpinaisen pinnan yli; korvataan jos parempi löytyy:
+%\newcommand\oiint{\begingroup
+% \displaystyle \unitlength 1pt
+% \int\mkern-7.2mu
+% \begin{picture}(0,3)
+%   \put(0,3){\oval(10,8)}
+% \end{picture}
+% \mkern-7mu\int\endgroup}

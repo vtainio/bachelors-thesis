@@ -1,0 +1,184 @@
+\documentclass[12pt,a4paper,finnish,oneside]{article}
+
+% Valitse 'input encoding':
+%\usepackage[latin1]{inputenc} % merkistökoodaus, jos ISO-LATIN-1:tä.
+\usepackage[utf8]{inputenc}   % merkistökoodaus, jos käytetään UTF8:a
+% Valitse 'output/font encoding':
+%\usepackage[T1]{fontenc}      % korjaa ääkkösten tavutusta, bittikarttana
+\usepackage{ae,aecompl}       % ed. lis. vektorigrafiikkana bittikartan sijasta
+% Kieli- ja tavutuspaketit:
+\usepackage[finnish]{babel}
+% Muita paketteja:
+% \usepackage{amsmath}   % matematiikkaa
+\usepackage{url}       % \url{...}
+
+% Kappaleiden erottaminen ja sisennys
+\parskip 1ex
+\parindent 0pt
+\evensidemargin 0mm
+\oddsidemargin 0mm
+\textwidth 159.2mm
+\topmargin 0mm
+\headheight 0mm
+\headsep 0mm
+\textheight 246.2mm
+
+\pagestyle{plain}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% Otsikkotiedot: muokkaa tähän omat tietosi
+
+\title{TIK.kand tutkimussuunnitelma:\\[5mm]
+<Oma aiheeni>}
+
+\author{Teemu Teekkari\\
+Aalto-yliopisto\\
+\url{teemu.teekkari@aalto.fi}}
+
+\date{\today}
+
+\maketitle
+
+% ---------------------------------------------------------------------
+
+% POISTA TÄMÄ:
+Tämä pohja on lukuisia kandidaatintöitä ohjanneen Vesa Hirvisalon
+käyttämä sabluuna tutkimussuunnitelmaksi.  Annettua otsikointia ja
+järjestystä voi käyttää apuna oman suunnitelman laatimisessa.
+Tärkeintä on tuottaa työkalu sinun ja ohjaajan väliseen
+kommunikointiin aiheen selventämisessä. Lisäksi aikatauluksen
+miettiminen heti alussa on tarpeellista.
+
+Tämän lähdetiedoston nimi on \verb!tutkimussuunnitelma.tex! ja tästä
+saa PDF-tiedoston joko \verb!make tutkimussuunnitelma.pdf! tai
+\verb!pdflatex tutkimussuunnitelma.tex! (ja jos lähteitä, niin lisäksi
+\verb!bibtex tutkimussuunnitelma!).  
+
+\vspace{10mm}
+
+% MUOKKAA TÄHÄN. Jos tarvitset tähän viitteitä, käytä
+% tässä dokumentissa numeroviitejärjestelmää komennolla \cite{kahva}.
+%
+% Paljon kandidaatintöitä ohjanneen Vesa Hirvisalon tarjoama 
+% sabluuna. Kursivoidut osat \emph{...} ovat kurssin henkilökunnan
+% lisäämiä. 
+
+\textbf{Kandidaatintyön nimi:} Oma aiheeni
+
+\textbf{Työn tekijä:} Teemu Teekkari
+
+\textbf{Ohjaaja:} Olli Ohjaaja
+
+
+\section{Tiivistelmä tutkimuksesta}
+
+Tutkimusaiheen lyhyt kuvaus. Esittele aiheesi tiivistetysti.
+
+\section{Tavoitteet ja näkökulmat}
+
+Mitä haluat saada selville? Mitkä ovat keskeisiä kysymyksiä? Mistä
+näkökulmasta asiaa tarkastellaan?
+
+Tutkimuskysymystä kannattaa siis rajata ja tarkentaa sekä huomioida
+näkökulman merkitys. Ts. jänikset eläintieteen kannalta ovat eri aihe
+kuin jänikset metsästyksen näkökulmasta.
+
+\section{Tutkimusmateriaali}
+
+Millaisen aineiston varaan perustat tutkimuksesi? Arvioi materiaalin
+riittävyyttä asetettuihin tavoitteisiin nähden.
+
+Pitää olla siis hieman kuvaa siitä, minkälaisen materiaalin kanssa
+ollaan tekemisissä ja mitä sellaisen käsittelyyn tarvitaan (etenkin
+siis tarvittavan ajan puolesta; ts. kuinka monta tuntia/minuuttia per
+lähde?).
+
+\section{Tutkimusmenetelmät}
+
+Miten sen keräät materiaalisi tai saat sen käsiisi? Kuinka käsittelet
+sen? Kuinka siitä tulee raportti?
+
+Tavallaisesti kirjallisuustutkimuksen yhteydessä tämä on:
+(a) lähderyhmien valinta,
+(b) viitteiden ja lähteiden haku,
+(c) lähteiden arviointi,
+(d) lähteiden lukeminen,
+(e) tiedon organisointi,
+(f) raportointi.  % (f) tärkeää ettei jää vain lukemiseksi!
+
+Kirjallisuustutkimuksen yleinen menetelmä pitää sovittaa tähän
+nimenomaiseen aiheeseen sekä tekijän lähtökohtiin. Kuinka sinä teet
+muistiinpanot (että myös kirjoitat etkä pelkästään lue). Eli tälle
+pitää hieman miettiä omakohtaista vaiheistusta. Siis nähdä ihan
+oikeasti, kuinka sinä saat tutkielman tehtyä.
+
+Ja... raportointi ei ole kirjoittamista vaan jo kirjoitettujen
+muistiinpanojen koostamista yhteneväksi teokseksi.
+
+\section{Haasteet}
+
+Yleensä kaikkiin töihin liittyy kompastuskiviä. Ne on syytä tiedostaa
+etukäteen. Yhdessä työssä aihe on suurpiirteinen (työn rajaaminen
+vaikeaa), toisessa materiaalia on niukasti saatavissa, kolmannessa
+taas materiaalia on hukkumiseen asti.  Eli, nämä pitäisi kyseisen
+tutkimuksen osalta kirjata ylös, ja nähdä ne myös mahdollisuuksina
+(positiivisina haasteina) ei ainostaan esteinä.
+
+\section{Resurssit}
+
+Kuka tätä työtä tekee, kuka ohjaa, jne. Paljonko on käyttää
+aikaa. Tarvitaanko muuta? (Onko työssä joku kokeellinen osuus?)
+
+\section{Aikataulu}
+
+Laadi tutkimustyölle ja raportoinnille realistinen aikataulu.
+Huolehdi, että suunnitelmasi vastaa kandidaatin tutkielman sekä
+seminaarin aikataulua sekä laajuutta.  \emph{Kurssiesitteessä omalle
+  kirjoitusprosessille on arvioitu noin 6 op eli 160 tuntia eli noin 4
+  viikkoa työtä.}
+
+%\begin{tabular}{|p{30mm}|p{120mm}|}
+%\hline
+%abcd   & qwerty qwerty \\ \hline
+%abcd   & qwerty qwerty \\ \hline
+%abcd   & qwerty qwerty \\ \hline
+%\end{tabular}
+
+
+\section{Esittäminen}
+
+Laadi lyhyt sisällysluettelo, jossa on hahmoteltuna kandityön pää- ja
+alaluvut. Yleensä perusrunko on
+(1) Johdanto,
+(2) Tausta,
+(3) Sisäluvut,
+(4) Yhteenveto.
+%
+Sinun täytyy suunnitella oma raportointisi tähän sopivaksi. 
+
+\emph{Rakenne tarkentuu työn edetessä. Tutkimussuunnitelmaan ei välttämättä tarvita lähdeluetteloa, mutta halutessasi voit sisällyttää tärkeimmät lähteet.}
+
+% ---------------------------------------------------------------------
+%
+% ÄLÄ MUUTA MITÄÄN TÄÄLTÄ LOPUSTA
+
+% Tässä on käytetty siis numeroviittausjärjestelmää. 
+% Toinen hyvin yleinen malli on nimi-vuosi-viittaus.
+
+% \bibliographystyle{plainnat}
+\bibliographystyle{finplain}  % suomi
+%\bibliographystyle{plain}    % englanti
+% Lisää mm. http://amath.colorado.edu/documentation/LaTeX/reference/faq/bibstyles.pdf
+
+% Muutetaan otsikko "Kirjallisuutta" -> "Lähteet"
+\renewcommand{\refname}{Lähteet}  % article-tyyppisen
+
+% Määritä bib-tiedoston nimi tähän (eli lahteet.bib ilman bib)
+\bibliography{lahteet}
+
+% ---------------------------------------------------------------------
+
+\end{document}
