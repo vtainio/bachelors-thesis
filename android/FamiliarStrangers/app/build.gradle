@@ -27,8 +27,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-4589"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.0-rc-1036"
 }
 buildscript {
     ext.kotlin_version = '1.0.0-beta-4589'
@@ -36,7 +35,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-rc-1036"
     }
 }
 repositories {
