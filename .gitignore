@@ -22,3 +22,16 @@
 *.mtc1
 *.out
 *.synctex.gz
+
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_STORE
+/build
+build/
+*.iml
+.idea
+.project
+.classpath
+
