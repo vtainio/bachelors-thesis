@@ -1,0 +1,11 @@
+{
+  "name": "familiarstrangers",
+  "version": "0.0.1",
+  "description": "Backend for Familiar Strangers",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Ville Tainio",
+  "license": "ISC"
+}
