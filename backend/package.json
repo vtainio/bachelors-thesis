@@ -4,7 +4,7 @@
   "description": "Backend for Familiar Strangers",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www.js",
+    "start": "NODE_PATH=. node ./bin/www.js",
     "test": "echo test"
   },
   "author": "Ville Tainio",
