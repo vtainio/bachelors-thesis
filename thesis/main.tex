@@ -18,7 +18,7 @@
 % Jos kirjoitat muulla kuin suomen kielellä valitse:
 %\usepackage[finnish]{aaltosci_t}           
 %\usepackage[swedish]{aaltosci_t}           
-\usepackage[english]{aaltosci_t}           
+\usepackage[english]{aaltosci_t}
 % Muita paketteja:
 \usepackage{alltt}
 \usepackage{amsmath}   % matematiikkaa
@@ -48,8 +48,8 @@
 % http://merkel.zoneo.net/Latex/natbib.php
 % jossa selitykset citep, citet, bibpunct, jne.
 % Valitse alla olevista tai muokkaa:
-\bibpunct{(}{)}{;}{a}{,}{,}    % a = tekijä-vuosi (author-year)
-%\bibpunct{[}{]}{;}{n}{,}{,}    % n = numero [1],[2] (numerical style)
+%\bibpunct{(}{)}{;}{a}{,}{,}    % a = tekijä-vuosi (author-year)
+\bibpunct{[}{]}{;}{n}{,}{,}    % n = numero [1],[2] (numerical style)
 
 % Rivivälin muuttaminen:
 \linespread{1.24}\selectfont               % riviväli 1.5
@@ -309,7 +309,7 @@ niitä, niin, montaa, oikeasti, tarvitse}
 % Katso myös tämän tiedoston yläosan "preamble" ja siellä \bibpunct.
 
 % Muutetaan otsikko "Kirjallisuutta" -> "Lähteet"
-\renewcommand{\refname}{Lähteet}  % article-tyyppisen
+\renewcommand{\refname}{References}  % article-tyyppisen
 %\renewcommand{\bibname}{Lähteet}  % jos olisi book, report-tyyppinen
 
 % Lisätään sisällysluetteloon
@@ -332,8 +332,8 @@ niitä, niin, montaa, oikeasti, tarvitse}
 % haastattelurunko, kyselypohja, ylimääräisiä kuvia, lyhyitä 
 % ohjelmakoodeja tai datatiedostoja.
 
-\appendix
-\input{luku_liitteet}
+%\appendix
+%\input{luku_liitteet}
 
 \label{pages:appendices}
 
