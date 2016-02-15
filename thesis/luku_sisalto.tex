@@ -30,12 +30,68 @@ Meeting strangers is only one part of the assumed benefits of the prototype appl
 One of the concerns of creating the application is that how frequently people doing sports actually meet familiar strangers. Setting the level of passing by's before allowing users to communicate with each other affects the whole user experience of the prototype application. Research by \cite{runningNavigation} showed that distance is the key thing what joggers are thinking about while running, not about using familiar routes. However, while routes change, joggers use familiar locations more than once. They usually leave out a part or add one based on their overall feeling. The fact, that joggers reuse locations increases the probability of running into familiar strangers along the way.
 
 \section{Interviews}
+
+This section describes the methods used for the interviews and the results gained from them. All interviews are anonymous and only basic demographic information about age was gathered from the participants.
+
 \subsection{Method for the interviews}
+
+The interviews consist multiple open-ended questions. The goal is to find out information about how people behave while doing sports. The main questions for the interview are:
+
+\begin{itemize}
+	\item Age?
+	\item What sports are you doing?
+	\item When are you planning to do sports next and what are you planning to do?
+	\item What kind of sports goals do you have?
+		\begin{itemize}
+			\item What is keeping you from achieving them / what has helped you achieve them?
+		\end{itemize}
+	\item What do you carry with you while doing sports?
+	\item Do you do it alone or with friends?
+	\item Have you interacted with strangers while doing sports?
+		\begin{itemize}
+			\item If so, how?
+		\end{itemize}
+	\item How does your motivation differ while doing sports by yourself and in a group?
+	\item Have you used any kind of tools to find people to do sports with?
+	\item Do you use any sports tracking applications?
+	\item What information about your sporting habits would you be willing to share with strangers that you come across often?
+	\item Would you be interested in trying out a tool which would suggest messaging people that you come across often while doing sports?
+\end{itemize}
+
+The questions aren't meant to be strict, just a guideline for the discussion. If new interesting discussions emerge while interviewing, the point is to go forward with them without thinking too much about the guideline presented previously.
+
+In total, X amount of people were interviewed for this study. X of them were male and Y of them were female.
+
 \subsection{Results}
 
-\section{Prototype}
-\subsection{Design}
-\subsection{Implementation}
+\section{Design}
+
+FIrst and foremost, the application's main goal is to allow people to connect with familiar strangers and find people to do sports with. The process of meeting a familiar strangers and connecting with them can be divided into a few steps:
+
+\begin{itemize}
+	\item Pass by the person enough times
+	\item View information about the person and their interests when the application suggests communication.
+	\item Hit them up with a message.
+	\item View their real-life information after both agree to do it and start doing sports with them.
+\end{itemize}
+
+\subsection{Passing by}
+
+Using beacon's the application will log every person that passes by. Only one of the people have to have their mobile phone with them since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial selected value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times most likely will be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be upgraded.
+
+\subsection{Collected information}
+
+After the user has encountered a familiar strangers enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display the locations on the map, where they have encountered each other. No other data is visible at this moment to the users. The designed views look like this:
+
+\subsection{Approaching}
+
+The inital approach towards the other user can be done anonymously. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be intersted in doing sports together.
+
+After this, or before this event, it is possible for the user to request real life information from the other person. Only after both parties agree to reveal information will anything be revealed. After that, it is possible for both of them to continue doing sports together and find meaningful things to do in life. A record of their communication is left on the app, and it will not log any pass by's from the other person anymore at this point. Until real-life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user removes them manually from the list.
+
+\section{Prototype implementation}
+
+The created prototype is an Android application. The programming language for the application is Kotlin. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very useful selection for the application.
 
 \section{Discussion}
 \subsection{Results of the study}
