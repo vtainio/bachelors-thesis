@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.villetainio.familiarstrangers">
 
-    <application android:allowBackup="true"
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.villetainio.familiarstrangers.FamiliarStrangers"
+        android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
@@ -14,6 +19,9 @@
                       <category android:name="android.intent.category.LAUNCHER" />
                   </intent-filter>
         </activity>
+
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.RegisterActivity" />
 
     </application>
 

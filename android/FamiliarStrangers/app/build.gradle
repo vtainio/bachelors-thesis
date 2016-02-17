@@ -21,6 +21,10 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+    }
 }
 
 dependencies {
@@ -33,6 +37,9 @@ dependencies {
     compile 'org.jetbrains.anko:anko-sdk15:0.8.2'
     compile 'org.jetbrains.anko:anko-appcompat-v7:0.8.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Firebase
+    compile 'com.firebase:firebase-client-android:2.5.0+'
 }
 buildscript {
     ext.kotlin_version = '1.0.0'
