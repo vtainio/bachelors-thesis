@@ -14,6 +14,10 @@ import org.jetbrains.anko.*
 import com.villetainio.familiarstrangers.R
 import com.villetainio.familiarstrangers.util.Constants
 
+import android.text.InputType.TYPE_CLASS_TEXT
+import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+import android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+
 class LoginActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
     val registerRequestCode = 1
@@ -25,18 +29,20 @@ class LoginActivity : AppCompatActivity() {
          * Define layout for the activity.
          */
         verticalLayout {
+            val emailLabel = textView(getString(R.string.label_email))
             val email = editText {
-                inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                inputType = TYPE_CLASS_TEXT or TYPE_TEXT_VARIATION_EMAIL_ADDRESS
             }
+            val passwordLabel = textView(getString(R.string.label_password))
             val password = editText {
-                inputType = android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+                inputType = TYPE_CLASS_TEXT or TYPE_TEXT_VARIATION_PASSWORD
             }
-            button("Login") {
+            button(getString(R.string.label_login)) {
                 onClick {
                     login(email.text.toString(), password.text.toString())
                 }
             }
-            val registerLink = textView("Sign up") {
+            val registerLink = textView(getString(R.string.label_register)) {
                 isClickable
                 onClick {
                     startRegisterActivity()

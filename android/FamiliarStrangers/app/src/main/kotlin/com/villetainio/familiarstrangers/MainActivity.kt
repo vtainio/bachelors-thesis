@@ -19,6 +19,14 @@ class MainActivity : AppCompatActivity() {
             button("Say Hello") {
                 onClick { toast("Hello, ${name.text}!") }
             }
+
+            val signOut = textView("Sign out") {
+                isClickable
+                onClick {
+                    firebase.unauth()
+                    checkAuthenticationStatus()
+                }
+            }
         }
 
         checkAuthenticationStatus()
