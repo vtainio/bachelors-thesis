@@ -1,5 +1,6 @@
 package com.villetainio.familiarstrangers.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
@@ -13,9 +14,11 @@ import com.villetainio.familiarstrangers.util.Constants
 import android.text.InputType.TYPE_CLASS_TEXT
 import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 import android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+import com.firebase.client.AuthData
 
 class RegisterActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
+    val onBoardingRequestCode = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,16 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     /**
+     * Check if onboarding has ended successfully.
+     */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == onBoardingRequestCode && resultCode == RESULT_OK) {
+            setResult(RESULT_OK)
+            finish()
+        }
+    }
+
+    /**
      * If passwords match, continue to registering to Firebase,
      * otherwise display an error on the screen.
      */
@@ -71,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
         firebase.createUser(email, password, object: Firebase.ValueResultHandler<Map<String, Any>> {
 
             override fun onSuccess(result: Map<String, Any>) {
-                returnToLogin()
+                loginAutomatically(email, password)
             }
 
             override fun onError(firebaseError: FirebaseError) {
@@ -82,10 +95,28 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     /**
-     * Return to the previous activity with the successful result code.
+     * Firebase doesn't log in automatically after register,
+     * so this does it by hand.
      */
-    fun returnToLogin() {
-        setResult(RESULT_OK)
-        finish()
+    fun loginAutomatically(email: String, password: String) {
+        firebase.authWithPassword(email, password, object: Firebase.AuthResultHandler {
+
+            override fun onAuthenticated(authData: AuthData) {
+                startOnBoarding()
+            }
+
+            override fun onAuthenticationError(firebaseError: FirebaseError) {
+                Toast.makeText(applicationContext, getString(R.string.error_default), Toast.LENGTH_LONG).show()
+                finish()
+            }
+        })
+    }
+
+    /**
+     * Start onboarding activity.
+     */
+    fun startOnBoarding() {
+        val onBoardingIntent = Intent(this@RegisterActivity, OnBoardingActivity::class.java)
+        startActivityForResult(onBoardingIntent,onBoardingRequestCode)
     }
 }

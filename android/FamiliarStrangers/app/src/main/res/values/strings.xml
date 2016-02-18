@@ -5,15 +5,22 @@
 
     <string name="settings_uid">settingsUID</string>
     <string name="settings_token">settingsToken</string>
+    <string name="settings_full_name">settingsFullName</string>
+    <string name="settings_interests">settingsInterests</string>
 
     <string name="error_user_does_not_exits">User does not exist.</string>
     <string name="error_invalid_password">Invalid password</string>
     <string name="error_passwords_do_not_match">Password do not match</string>
     <string name="error_default">Error occured</string>
+    <string name="error_empty_full_name">You must insert a name.</string>
 
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="label_password_validation">Password again</string>
     <string name="label_login">Login</string>
     <string name="label_register">Sign up</string>
+    <string name="label_full_name">Full name (this will only be showed to people you select)</string>
+    <string name="label_information">Now we need a few more details about you.</string>
+    <string name="label_interests">Your interests (this will be public information)</string>
+    <string name="label_save">Save</string>
 </resources>
