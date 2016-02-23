@@ -2,6 +2,7 @@ package com.villetainio.familiarstrangers.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.firebase.client.Firebase
@@ -102,6 +103,7 @@ class RegisterActivity : AppCompatActivity() {
         firebase.authWithPassword(email, password, object: Firebase.AuthResultHandler {
 
             override fun onAuthenticated(authData: AuthData) {
+                storeUserId(authData.uid)
                 startOnBoarding()
             }
 
@@ -110,6 +112,13 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
             }
         })
+    }
+
+    fun storeUserId(userId: String) {
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .edit()
+            .putString(getString(R.string.settings_uid), userId)
+            .apply()
     }
 
     /**

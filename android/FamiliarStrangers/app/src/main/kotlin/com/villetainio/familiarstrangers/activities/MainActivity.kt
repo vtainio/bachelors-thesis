@@ -1,4 +1,4 @@
-package com.villetainio.familiarstrangers
+package com.villetainio.familiarstrangers.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-        checkAuthenticationStatus()
     }
 
     override fun onResume() {

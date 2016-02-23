@@ -23,4 +23,8 @@
     <string name="label_information">Now we need a few more details about you.</string>
     <string name="label_interests">Your interests (this will be public information)</string>
     <string name="label_save">Save</string>
+
+    <string name="firebase_users">users</string>
+    <string name="firebase_users_fullname">name</string>
+    <string name="firebase_users_interests">interests</string>
 </resources>

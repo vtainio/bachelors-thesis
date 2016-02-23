@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import com.firebase.client.Firebase
 import org.jetbrains.anko.*
 import com.villetainio.familiarstrangers.R
+import com.villetainio.familiarstrangers.util.Constants
 
 class OnBoardingActivity : AppCompatActivity() {
+    val firebase = Firebase(Constants.SERVER_URL)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +26,13 @@ class OnBoardingActivity : AppCompatActivity() {
                     saveInformation(fullName.text.toString(), interests.text.toString())
                 }
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (firebase.auth == null) {
+            finish()
         }
     }
 
@@ -49,6 +59,27 @@ class OnBoardingActivity : AppCompatActivity() {
             .putString(getString(R.string.settings_full_name), fullName)
             .putString(getString(R.string.settings_interests), interests)
             .apply()
+
+        sendInformationToFirebase(fullName, interests)
+    }
+
+    /**
+     * Create a user profile to Firebase and store information there.
+     */
+    fun sendInformationToFirebase(fullName: String, interests: String) {
+        val userId = PreferenceManager.getDefaultSharedPreferences(this)
+                        .getString(getString(R.string.settings_uid), "")
+
+        if (userId.length == 0) {
+            Toast.makeText(this, getString(R.string.error_default), Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Store the user object
+        val userRef = firebase.child(getString(R.string.firebase_users)).child(userId)
+        userRef.child(getString(R.string.firebase_users_fullname)).setValue(fullName)
+        userRef.child(getString(R.string.firebase_users_interests)).setValue(interests)
+
         finishOnBoarding()
     }
 
