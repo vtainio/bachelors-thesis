@@ -66,7 +66,7 @@ In total, X amount of people were interviewed for this study. X of them were mal
 
 \section{Design}
 
-FIrst and foremost, the application's main goal is to allow people to connect with familiar strangers and find people to do sports with. The process of meeting a familiar strangers and connecting with them can be divided into a few steps:
+First and foremost, the application's main goal is to allow people to connect with familiar strangers and find people to do sports with. The designed process of meeting a familiar strangers and connecting with them divided into a few steps is:
 
 \begin{itemize}
 	\item Pass by the person enough times
@@ -93,7 +93,15 @@ After this, or before this event, it is possible for the user to request real li
 
 The created prototype is an Android application. The programming language for the application is Kotlin. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very useful selection for the application.
 
+\subsection{Architecture}
+
+The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase, which is a tool for creating fast backends using JSON nothing but objects. The user authenticates to the backend, so that we get unique users that aren't locked into a single device in the application's lifetime.
+
+Push notifications aren't at the moment handled by a real-time push notification server. The application polls, the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
+
 \section{Discussion}
+
+The application is open sourced with the Apache 2.0 license,
 \subsection{Results of the study}
 \subsection{Future work}
 
