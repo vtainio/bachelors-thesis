@@ -74,6 +74,7 @@ class LoginActivity : AppCompatActivity() {
                 PreferenceManager.getDefaultSharedPreferences(applicationContext)
                         .edit()
                         .putString(getString(R.string.settings_uid), authData.uid)
+                        .putString(getString(R.string.settings_email), email)
                         .apply()
                 finish() // Return to the parent activity.
             }

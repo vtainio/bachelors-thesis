@@ -7,6 +7,7 @@
     <string name="settings_token">settingsToken</string>
     <string name="settings_full_name">settingsFullName</string>
     <string name="settings_interests">settingsInterests</string>
+    <string name="settings_email">settingsEmail</string>
 
     <string name="error_user_does_not_exits">User does not exist.</string>
     <string name="error_invalid_password">Invalid password</string>
@@ -27,4 +28,6 @@
     <string name="firebase_users">users</string>
     <string name="firebase_users_fullname">name</string>
     <string name="firebase_users_interests">interests</string>
+
+    <string name="menu_logout">logout</string>
 </resources>

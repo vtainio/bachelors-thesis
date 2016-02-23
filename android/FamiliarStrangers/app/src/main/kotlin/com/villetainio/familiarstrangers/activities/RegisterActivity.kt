@@ -103,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
         firebase.authWithPassword(email, password, object: Firebase.AuthResultHandler {
 
             override fun onAuthenticated(authData: AuthData) {
-                storeUserId(authData.uid)
+                storeUserIdAndEmail(authData.uid, email)
                 startOnBoarding()
             }
 
@@ -114,11 +114,12 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
-    fun storeUserId(userId: String) {
+    fun storeUserIdAndEmail(userId: String, email: String) {
         PreferenceManager.getDefaultSharedPreferences(this)
-            .edit()
-            .putString(getString(R.string.settings_uid), userId)
-            .apply()
+                .edit()
+                .putString(getString(R.string.settings_uid), userId)
+                .putString(getString(R.string.settings_email), email)
+                .apply()
     }
 
     /**
