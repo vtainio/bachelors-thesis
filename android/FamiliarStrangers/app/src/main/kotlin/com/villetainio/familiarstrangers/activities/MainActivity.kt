@@ -4,33 +4,47 @@ import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import com.firebase.client.Firebase
-import com.villetainio.familiarstrangers.activities.LoginActivity
+import com.mikepenz.materialdrawer.AccountHeaderBuilder
+import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.villetainio.familiarstrangers.util.Constants
 import com.villetainio.familiarstrangers.R
-import com.villetainio.familiarstrangers.activities.OnBoardingActivity
-
-import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        verticalLayout {
-            val name = editText()
-            button("Say Hello") {
-                onClick { toast("Hello, ${name.text}!") }
-            }
+        setContentView(R.layout.activity_main)
 
-            val signOut = textView("Sign out") {
-                isClickable
-                onClick {
-                    firebase.unauth()
-                    checkAuthenticationStatus()
-                }
-            }
-        }
+        val name =  PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(getString(R.string.settings_full_name), "")
+
+        val toolbar = findViewById(R.id.fs_toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+
+
+        val headerResult = AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.color.material_drawer_background)
+                .withSelectionListEnabledForSingleProfile(false)
+                .addProfiles(
+                        ProfileDrawerItem().withName(name)
+                )
+                .withOnAccountHeaderListener { view, iProfile, b -> false }
+                .build()
+
+        val result = DrawerBuilder().withActivity(this)
+                .withToolbar(toolbar)
+                .withActionBarDrawerToggle(false)
+                .withAccountHeader(headerResult)
+                .withActionBarDrawerToggle(true)
+                .addDrawerItems(
+                        // Pass items here.
+                )
+                .build();
     }
 
     override fun onResume() {

@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.villetainio.familiarstrangers"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -39,7 +39,12 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Firebase
-    compile 'com.firebase:firebase-client-android:2.5.0+'
+    compile 'com.firebase:firebase-client-android:2.5.0'
+
+    // MaterialDrawer
+    compile('com.mikepenz:materialdrawer:5.0.3@aar') {
+        transitive = true
+    }
 }
 buildscript {
     ext.kotlin_version = '1.0.0'
