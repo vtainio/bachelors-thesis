@@ -64,9 +64,11 @@ In total, X amount of people were interviewed for this study. X of them were mal
 
 \subsection{Results}
 
+
+
 \section{Design}
 
-First and foremost, the application's main goal is to allow people to connect with familiar strangers and find people to do sports with. The designed process of meeting a familiar strangers and connecting with them divided into a few steps is:
+First and foremost, the application's main goal is to allow people to connect with familiar strangers and find people to do sports with. Of course the application can be used for other purposes than just sports, but it is mainly designed for that challenge. It will be interesting to see whether it is used for just random encounteres instead of with a specific goal in mind. The designed process of meeting a familiar strangers and connecting with them divided into a few steps is:
 
 \begin{itemize}
 	\item Pass by the person enough times
@@ -75,23 +77,30 @@ First and foremost, the application's main goal is to allow people to connect wi
 	\item View their real-life information after both agree to do it and start doing sports with them.
 \end{itemize}
 
+
 \subsection{Passing by}
 
-Using beacon's the application will log every person that passes by. Only one of the people have to have their mobile phone with them since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial selected value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times most likely will be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be upgraded.
+Using beacon's the application will log every person that passes by. Only one of the people have to have their mobile phone with them since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times most likely will be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be upgraded. The users are also able to select the amount themselves before other users are able to approach them with messages. This serves all needs from the users.
+
+The user is able to view how many people they have come across to from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other.
+
+The logging can be turned on and off whenever the user feels like it. It will be interesting to see whether people will keep it on always, or just during the activities they want to perform with other people, such as sports.
 
 \subsection{Collected information}
 
-After the user has encountered a familiar strangers enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display the locations on the map, where they have encountered each other. No other data is visible at this moment to the users. The designed views look like this:
+After the user has encountered a familiar strangers enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display the locations on the map, where they have encountered each other. No other data is visible at this moment to the users. Based on the literature review of this thesis, displaying this kind of information publicly to the users isn't a problem at all. Most users would be willing to reveal even more information to the strangers based on the research done by X. However, the application deosn't have any additional information about the  interests of the person, so other information would only be users real name and pictures.
+
+The designed views look like this:
 
 \subsection{Approaching}
 
-The inital approach towards the other user can be done anonymously. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be intersted in doing sports together.
+The inital approach towards the other user can be done anonymously. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be intersted in doing sports together. Research by X suggests that users are interested in getting to know other people, therefore it is possible to chat with strangers in this application. The chat is meant for users to verify similar interests and goals before getting to know each other better.
 
 After this, or before this event, it is possible for the user to request real life information from the other person. Only after both parties agree to reveal information will anything be revealed. After that, it is possible for both of them to continue doing sports together and find meaningful things to do in life. A record of their communication is left on the app, and it will not log any pass by's from the other person anymore at this point. Until real-life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user removes them manually from the list.
 
 \section{Prototype implementation}
 
-The created prototype is an Android application. The programming language for the application is Kotlin. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very useful selection for the application.
+The created prototype is an Android application. The programming language for the application is Kotlin. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very useful selection for the application. In addition to Kotlin, anko; a view library created by JetBrains; was also used for the application. Using anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
 
 \subsection{Architecture}
 
@@ -101,7 +110,8 @@ Push notifications aren't at the moment handled by a real-time push notification
 
 \section{Discussion}
 
-The application is open sourced with the Apache 2.0 license,
+The application is open sourced with the Apache 2.0 license, so anyone is able to take this project forward.
+
 \subsection{Results of the study}
 \subsection{Future work}
 
