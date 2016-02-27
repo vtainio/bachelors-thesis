@@ -22,11 +22,11 @@ The interviews were composed from open-ended questions where the goal was more t
 This section presents related works from two perspectives: the social interaction perspective and the perspective of doing sports. The design of the prototype application relies on results from both of these perspectives.
 
 \subsection{Social interaction}
+
 \cite{socialAdHoc} studied ad hoc social networking with a social networking system called TWIN. In a survey conducted after the study, the method for approaching unfamiliar persons was one of the highest rated features of the system. \cite{mobileMatchmaking} conducted a survey where 90\% of the participants stated that they would use regularly a service which would help introduce nearby strangers to each other. Serendipity, the application created for their research, is a mobile match-making system which alerts users when someone with similar interests comes into proximity. The reactions to the system have been overwhelmingly positive. These results imply that systems which allow people to interact with familiar strangers are in fact desired by users.
 
-
-
 \subsection{Sports}
+
 Meeting strangers is only one part of the assumed benefits of the prototype application. Previous research suggests that doing sports in a group or together with a friend results in increased performance. Therefore, the findings suggest that finding strangers with similar interests and a similar level of fitness to do sports with would result in a performance increase for the user. However, finding people to do sports with can be an daunting task especially for people who have just moved to a new city or a country. It is important to make finding strangers as easy as possible with the use of modern technology without compromising the privacy of the users.
 
 One of the concerns of creating the application is that how frequently people doing sports actually meet familiar strangers. Setting the level of passing by's before allowing users to communicate with each other affects the whole user experience of the prototype application. Research by \cite{runningNavigation} showed that distance is the key thing what joggers are thinking about while running, not about using familiar routes. However, while routes change, joggers use familiar locations more than once. They usually leave out a part or add one based on their overall feeling. The fact, that joggers reuse locations increases the probability of running into familiar strangers along the way.
@@ -79,11 +79,11 @@ First and foremost, the application's main goal is to allow people to connect wi
 	\item View their real-life information after both agree to do it and start doing sports with them.
 \end{itemize}
 
-This prototype application is a mix of remote and social interaction among people assisted with techonology. Users are able to chat with familiar strangers remotely but real life proximity is required to start these conversations.
+This prototype application is a mix of remote and social interaction among people assisted with techonology. Users are able to chat with familiar strangers remotely but real life proximity is required to start these conversations. The aim is to push the boundaries of how social interaction is done among strangers. Shared common interests are usually the starters for social interaction among strangers and the application tries to highlight these common interests and therefore, initialize social interaction among strangers.
 
 \subsection{Passing by}
 
-Using beacon's the application will log every person that passes by. Only one of the people have to have their mobile phone with them since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times most likely will be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be upgraded. The users are also able to select the amount themselves before other users are able to approach them with messages. This serves all needs from the users.
+Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times most likely will be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be upgraded. The users are also able to select the amount themselves before other users are able to approach them with messages. This serves all needs from the users.
 
 The user is able to view how many people they have come across to from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other.
 
@@ -92,8 +92,6 @@ The logging can be turned on and off whenever the user feels like it. It will be
 \subsection{Collected information}
 
 After the user has encountered a familiar strangers enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display the locations on the map, where they have encountered each other. No other data is visible at this moment to the users. Based on the literature review of this thesis, displaying this kind of information publicly to the users isn't a problem at all. Most users would be willing to reveal even more information to the strangers based on the research done by X. However, the application deosn't have any additional information about the  interests of the person, so other information would only be users real name and pictures.
-
-The designed views look like this:
 
 \subsection{Approaching}
 
@@ -105,17 +103,26 @@ After this, or before this event, it is possible for the user to request real li
 
 The created prototype is an Android application. The programming language for the application is Kotlin. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very useful selection for the application. In addition to Kotlin, anko; a view library created by JetBrains; was also used for the application. Using anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
 
+Using the application requires users to get a Bluetooth beacon. The application uses the open  Eddystone protocol, so there is plenty of beacon models to choose from. Most popular Bluetooth beacon's at the moment of this thesis' creation are Apple's iBeacons and Estimote beacons.
+
 \subsection{Architecture}
 
 The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase, which is a tool for creating fast backends using JSON nothing but objects. The user authenticates to the backend, so that we get unique users that aren't locked into a single device in the application's lifetime.
 
+The application uses Firebase to authenticate users. A combination of email and password is currently used for the authentication. However, it is easy to add third party login systems, such as Facebook and Google for the authentication.
+
+The application uses a background service to run the logging in a separate thread. The application detects the "join" and "exit" events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones.
+
 Push notifications aren't at the moment handled by a real-time push notification server. The application polls, the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
+
+\subsection{Using the prototype}
+
+The application is open sourced with the Apache 2.0 license. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do.
 
 \section{Discussion}
 
-The application is open sourced with the Apache 2.0 license, so anyone is able to take this project forward.
-
 \subsection{Results of the study}
+
 \subsection{Future work}
 
 \section{Conclusion}
