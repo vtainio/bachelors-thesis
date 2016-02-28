@@ -62,11 +62,25 @@ The interviews consist multiple open-ended questions. The goal is to find out in
 
 The questions aren't meant to be strict, just a guideline for the discussion. If new interesting discussions emerge while interviewing, the point is to go forward with them without thinking too much about the guideline presented previously.
 
-In total, X amount of people were interviewed for this study. X of them were male and Y of them were female.
-
 \subsection{Results}
 
+In total, three people were interviewed for this thesis. A few demographic questions were included in the interviews. Two of the participants were female and one was  a male. One of the participants did sports 4-5 times a week, one 2-3 times a week and one did sports very rarely. Their sports activities were gym, various group exercises (e.g. spinning), martial arts and jogging.
 
+One of the participants was very goal oriented in their sports activities, others were doing them just for getting a good feeling out of it. All of them carried devices for music during sports. Therefore, using the kind of a prototype application done for this thesis wouldn't require a change in their current behavior. Most of them did sports alone, sometimes together with friends. Friends that they did sports with, were mostly old friends from school. One of them got to know people that they frequently met at the gym and later started working out together.
+
+Doing sports together with other people and alone had different effects to their motivation.
+
+\begin{quote}
+\it I might have a good motivation with or without friends. In a group settings, others are supporting me, which might make me achieve higher goals than I thought were possible. However, it might also end up so that we are just chatting without getting anything done. If I am working by myself, I try to gain motivation with some external factors (e.g. music).
+\end{quote}
+
+Privacy was a concern among the participants related to this prototype application and what it reveals to strangers about users.
+
+\begin{quote}
+\it I would maybe be willing to share some open text related to my interests, my profile picture, my sex, my first name and maybe my email address. If it were a dating service and I would be actively searching for a partner, I would be willing to share more information.
+\end{quote}
+
+%Also the level of private information that the users were willing to share differed if the goal was to find a
 
 \section{Design}
 
@@ -107,7 +121,7 @@ Using the application requires users to get a Bluetooth beacon. The application 
 
 \subsection{Architecture}
 
-The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase, which is a tool for creating fast backends using JSON nothing but objects. The user authenticates to the backend, so that we get unique users that aren't locked into a single device in the application's lifetime.
+The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users that aren't locked into a single device in the application's lifetime.
 
 The application uses Firebase to authenticate users. A combination of email and password is currently used for the authentication. However, it is easy to add third party login systems, such as Facebook and Google for the authentication.
 
@@ -117,7 +131,7 @@ Push notifications aren't at the moment handled by a real-time push notification
 
 \subsection{Using the prototype}
 
-The application is open sourced with the Apache 2.0 license. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do.
+The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do.
 
 \section{Discussion}
 
