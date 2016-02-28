@@ -117,11 +117,13 @@ This prototype application is a mix of remote and social interaction among peopl
 
 \subsection{Passing by}
 
-Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times will most likely be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be increased. The users are also able to select the amount themselves before other users are able to approach them with messages. The users are also able to select few requirements for the encounters, such as sex of the stranger. Therefore, if the user is searching for male joggers, no females will be suggested for interaction.
+Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times will most likely be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be increased. The users are also able to select the amount themselves before other users are able to approach them with messages. The conducted interview suggests that people would be interested to see the public interests of strangers even with low encounters.
 
-The user is able to view how many people they have come encountered from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other.
+The users are also able to select few requirements for the encounters, such as sex of the stranger. Therefore, if the user is searching for male joggers, no females will be suggested for interaction.
 
-The logging can be turned on and off whenever the user feels like it. It will be interesting to see whether people will keep it on always, or just during the activities they want to perform with other people, such as sports.
+The user is able to view how many people they have come encountered from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other. If the strangers has enabled other information to be public, such as a profile picture, those will be displayed at this point as well.
+
+The logging can be turned on and off whenever the user feels like it. The reason could be that the user is in a place where they do not want to encounter anyone or have a record of the location stored in the application or if they want to save battery by closing every Bluetooth connection. It will also be interesting to see whether people will keep it on always, or just during the activities they want to perform with other people, such as sports.
 
 \subsection{Approaching the stranger}
 
@@ -133,7 +135,7 @@ The interaction can stay anonymous as long as the users want to. It's possible t
 
 At some point, it is necessary to reveal real life information in order to initialize social interaction among the two strangers. The real life information should be revealed only after both parties feel entirely comfortable with the idea. There, in this prototype application, it is possible for the user to request real life information from the other person and only after both parties agree to reveal information will anything be revealed. The information can be revealed one piece at a time or all at once. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Most likely the two will not continue chatting via this application after this point, but it is possible to do so. A record of their communication is left on the app, and it will not log any encounters from the other person anymore at this point. Until real life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user removes them manually.
 
-It is interesting too see whether revealing real life information one at a time create a more comfortable environment or will everyone just reveal all of the information at once. I was unable to find any references to a similar method used in another application. Therefore, this kind of a mutual information revealing seems to be quite new in the field.
+It is interesting too see whether revealing real life information one at a time create a more comfortable environment or will everyone just reveal all of the information at once. I was unable to find any references to a similar method used in another application. Therefore, this kind of a mutual information revealing piece by piece seems to be quite new in the field.
 
 \section{Prototype implementation}
 
@@ -145,7 +147,7 @@ Using the application requires users to get a Bluetooth beacon. The application 
 
 The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime.
 
-The application uses Firebase's authentication features for the authenticatino. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook and Google for the authentication.
+The application uses Firebase's authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
 
 The application uses a background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones. It remains to see, if the application uses too much battery so that the users will uninstall the application.
 
@@ -157,11 +159,17 @@ The application is open sourced with the Apache 2.0 license\footnote{\url{http:/
 
 \section{Discussion}
 
-Doing research with this application requires quite a big user study in order to create an environment where actual encounters with strangers will happen. Unfortunately no such large study has been done for this thesis, but as the application is licensed with an open source license, hopefully such a study will see the light of day sometime in the future. 
+This section analyses the results that the study produced and what should be done in the future related to the created prototype application and about researching the social interactions of familiar strangers.
 
 \subsection{Results of the study}
 
+The conducted interviews presented multiple interesting points of views. However, as the amount of interviews is so low, it is not possible to draw general conclusions about the behavior models of users. The results served their purpose in giving general direction to the prototype application's design process and therefore resulted in very valuable information for this study.
+
 \subsection{Future work}
+
+A larger study should be conducted to validate the behavior models and assumptions that were generated by the conducted interviews. In addition to researching the behavior models of doing social interaction among familiar strangers, the prototype application should be used for more and bigger research.
+
+Doing research with this application requires quite a big user study in order to create an environment where actual encounters with strangers will happen. Unfortunately no such large study has been done for this thesis, but as the application is licensed with an open source license, hopefully such study will see the light of day sometime in the near future. The future research done by this application should also take into account different kinds of sports and the behavior among them.
 
 \section{Conclusion}
 
