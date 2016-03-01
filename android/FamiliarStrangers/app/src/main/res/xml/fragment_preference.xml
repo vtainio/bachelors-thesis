@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/pref_category_personal_information">
+
+        <EditTextPreference
+            android:key="@string/settings_full_name"
+            android:title="@string/label_full_name"
+            android:summary="@string/pref_summary_full_name"
+            android:dialogTitle="@string/pref_dialog_full_name" />
+
+        <EditTextPreference
+            android:key="@string/settings_interests"
+            android:title="@string/label_interests"
+            android:summary="@string/pref_summary_interests"
+            android:dialogTitle="@string/pref_dialog_interests" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

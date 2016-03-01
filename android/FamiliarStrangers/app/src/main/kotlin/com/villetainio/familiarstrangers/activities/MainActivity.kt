@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
                 .withActionBarDrawerToggle(true)
                 .addDrawerItems(
                         PrimaryDrawerItem()
+                            .withName(getString(R.string.activity_label_settings))
+                            .withIdentifier(Constants.MENU_SETTINGS),
+                        PrimaryDrawerItem()
                             .withName(getString(R.string.menu_logout))
                             .withIdentifier(Constants.MENU_LOGOUT)
                 )
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*,*>?): Boolean {
                         when (drawerItem?.identifier) {
                             Constants.MENU_LOGOUT -> logout()
+                            Constants.MENU_SETTINGS -> startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
                         }
 
                         return false

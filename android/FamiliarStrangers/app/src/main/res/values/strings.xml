@@ -30,4 +30,18 @@
     <string name="firebase_users_interests">interests</string>
 
     <string name="menu_logout">logout</string>
+
+    <string name="pref_category_personal_information">Personal information</string>
+    <string name="pref_summary_interests">Your interests that are shown to everyone (public)</string>
+    <string name="pref_dialog_interests">Public interests</string>
+    <string name="pref_summary_full_name">Your full name (private)</string>
+    <string name="pref_dialog_full_name">Full name</string>
+
+    <string name="title_preferences">Settings</string>
+    <string name="summary_preferences">Your settings.</string>
+
+    <string name="activity_label_login">Login</string>
+    <string name="activity_label_register">Register</string>
+    <string name="activity_label_onboarding">Onboarding</string>
+    <string name="activity_label_settings">Settings</string>
 </resources>

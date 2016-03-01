@@ -20,9 +20,17 @@
                   </intent-filter>
         </activity>
 
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.OnBoardingActivity" />
+        <activity android:name=".activities.LoginActivity"
+            android:label="@string/activity_label_login" />
+
+        <activity android:name=".activities.RegisterActivity"
+            android:label="@string/activity_label_register" />
+
+        <activity android:name=".activities.OnBoardingActivity"
+            android:label="@string/activity_label_onboarding" />
+
+        <activity android:name=".activities.SettingsActivity"
+            android:label="@string/activity_label_settings" />
 
     </application>
 
