@@ -30,7 +30,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.0"
 
     // Anko dependencies
@@ -45,6 +45,9 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.0.3@aar') {
         transitive = true
     }
+
+    // Estimote SDK
+    compile 'com.estimote:sdk:0.10.0@aar'
 }
 buildscript {
     ext.kotlin_version = '1.0.0'

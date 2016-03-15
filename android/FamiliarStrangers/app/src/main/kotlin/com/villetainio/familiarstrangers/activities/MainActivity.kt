@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
+import com.estimote.sdk.SystemRequirementsChecker
 import com.firebase.client.Firebase
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -73,6 +74,8 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         checkAuthenticationStatus()
         checkOnBoardingStatus()
+
+        SystemRequirementsChecker.checkWithDefaultDialogs(this) // Request permissions.
     }
 
     /**
