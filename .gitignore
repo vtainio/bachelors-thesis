@@ -22,6 +22,7 @@
 *.mtc1
 *.out
 *.synctex.gz
+*~
 
 .gradle
 /local.properties
