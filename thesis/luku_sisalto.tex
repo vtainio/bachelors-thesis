@@ -19,6 +19,8 @@ The interviews were composed from open-ended questions where the goal was more t
 
 \section{Related work}
 
+% TODO kuvaile aihekenttää yleisemmin.
+
 This section presents related works from two perspectives: the social interaction perspective and the perspective of doing sports. The design of the prototype application relies on results from both of these perspectives.
 
 \subsection{Social interaction}
@@ -33,7 +35,21 @@ One of the concerns of creating the application is that how frequently people do
 
 \subsection{Social sports}
 
-\cite{joggingOverDistance} present a social prototype application called "Jogging over a Distance" where two people can jog together across the globe aided by technology.
+This section cover previous research about social sports.
+
+\cite{joggingOverDistance} present a social prototype application called "Jogging over a Distance", where two people can jog together across the globe aided by technology. The system works so that two runners agree to jog during the same time and both agree to wear a headset and a heart rate monitor during the activity. The runners have a computer and a mobile phone with them for communicating and transmitting data among the runners. While jogging, both can hear the audio from the other runner. In addition to being able to speak with the other runner, the system uses two dimensional voice to present the relative heart rate of the other runner. This audio shows the runner whether they are running too fast or too slowly and they can adjust their speed with that information.
+
+\cite{augmentedClimbing} presents a project called augmented climbing. The paper is about interacting with projected graphics in a climbing wall. 
+
+This thesis focuses more on how to create and inspire social interaction rather than how the interaction can be enhanced during the sports activity. However, these  findings support the view that social and augmented technology can increase performance in sports and turn a hard job into a more social play.
+
+\subsection{Bluetooth beacons}
+
+% TODO Add footnote to beacon models and source for bluetooth standards.
+
+The prototype application created for this thesis uses Bluetooth beacons. Most famous commercial beacons currently are iBeacons from Apple and Estimote beacons. The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard. In the prototype application created for this thesis, the beacons are used to log encounters with strangers. The beacons are constantly broadcasting a message and the Android application can detect beacons while doing sports. The beacons' MAC address are used to identify the beacons uniquely. Each user is able to register one beacon for their use in the application so storing the encounters is rather easy.
+
+There are two roles in BLE. Some of the latest phones in the market are now also able to act as the peripheral role. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable of this, which results in that this prototype application would be hard to test with a big group because the phone models are still rare.
 
 \section{Interviews}
 
@@ -109,7 +125,7 @@ The logging can be turned on and off whenever the user feels like it. The reason
 
 \subsection{Approaching the stranger}
 
-After the user has encountered a familiar strangers enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display on a map where they have encountered each other. As a result of the interviews conducted for this thesis, I decided not to include any other visible data for other users at this point. Based on the literature review of this thesis and the interviews, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users. However, the user can optionally display more information, such as a profile picture already at this stage.
+After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display on a map where they have encountered each other. As a result of the interviews conducted for this thesis, I decided not to include any other visible data for other users at this point. Based on the literature review of this thesis and the interviews, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users. However, the user can optionally display more information, such as a profile picture already at this stage.
 
 The interaction can stay anonymous as long as the users want to. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be interested in doing sports together. The chat is meant for users to verify similar interests and goals before getting to know each other better. If the interests and goals do not match, either user can ignore the other person and they will not be in any kind of interaction via the application ever again.
 
@@ -121,7 +137,7 @@ It is interesting too see whether revealing real life information one at a time 
 
 \section{Prototype implementation}
 
-The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for developing Android applications. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
+The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	keveloping Android applications. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
 
 Using the application requires users to get a Bluetooth beacon. The application uses the open  Eddystone protocol, so there is plenty of beacon models to choose from. Most popular Bluetooth beacon's at the moment of this thesis' creation are Apple's iBeacons and Estimote beacons\footnote{\url{http://estimote.com/}}.
 
@@ -154,5 +170,7 @@ A larger study should be conducted to validate the behavior models and assumptio
 Doing research with this application requires quite a big user study in order to create an environment where actual encounters with strangers will happen. Unfortunately no such large study has been done for this thesis, but as the application is licensed with an open source license, hopefully such study will see the light of day sometime in the near future. The future research done by this application should also take into account different kinds of sports and the behavior among them.
 
 \section{Conclusion}
+
+
 
 % --------------------------------------------------------------------
