@@ -121,6 +121,13 @@ Using Bluetooth beacons, the application will log every person that passes by. O
 
 The users are also able to select few requirements for the encounters, such as sex of the stranger. Therefore, if the user is searching for male joggers, no females will be suggested for interaction.
 
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{encounters.png}
+		\caption{A list of encounters (name and how many times)}	
+	\end{center}
+\end{figure}
+
 The user is able to view how many people they have come encountered from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other. If the strangers has enabled other information to be public, such as a profile picture, those will be displayed at this point as well.
 
 The logging can be turned on and off whenever the user feels like it. The reason could be that the user is in a place where they do not want to encounter anyone or have a record of the location stored in the application or if they want to save battery by closing every Bluetooth connection. It will also be interesting to see whether people will keep it on always, or just during the activities they want to perform with other people, such as sports.
@@ -144,6 +151,13 @@ The created prototype is an Android\footnote{\url{https://www.android.com/}} app
 Using the application requires users to get a Bluetooth beacon. The application uses the open  Eddystone protocol, so there is plenty of beacon models to choose from. Most popular Bluetooth beacon's at the moment of this thesis' creation are Apple's iBeacons and Estimote beacons\footnote{\url{http://estimote.com/}}.
 
 \subsection{Architecture}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{fs_architecture.png}
+		\caption{The application architecture.}	
+	\end{center}
+\end{figure}
 
 The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime.
 
