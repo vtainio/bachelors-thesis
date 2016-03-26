@@ -47,7 +47,7 @@ dependencies {
     }
 
     // Estimote SDK
-    compile 'com.estimote:sdk:0.10.0@aar'
+    compile 'com.estimote:sdk:0.10.1@aar'
 }
 buildscript {
     ext.kotlin_version = '1.0.0'

@@ -1,8 +1,13 @@
 package com.villetainio.familiarstrangers.activities
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.v4.app.ActivityCompat
+import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -16,6 +21,7 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.villetainio.familiarstrangers.util.Constants
 import com.villetainio.familiarstrangers.R
+import com.villetainio.familiarstrangers.fragments.EncountersFragment
 
 class MainActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
@@ -68,6 +74,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
                 .build();
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.encountersList, EncountersFragment())
+            .commit()
     }
 
     override fun onResume() {
@@ -75,6 +85,10 @@ class MainActivity : AppCompatActivity() {
         checkAuthenticationStatus()
         checkOnBoardingStatus()
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //TODO Implement.
+        }
         SystemRequirementsChecker.checkWithDefaultDialogs(this) // Request permissions.
     }
 
