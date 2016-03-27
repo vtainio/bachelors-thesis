@@ -25,6 +25,8 @@ The interviews were composed from open-ended questions where the goal was more t
 
 This section presents related works from two perspectives: the social interaction perspective and the perspective of doing sports. The design of the prototype application relies on results from both of these perspectives.
 
+
+
 \subsection{Social interaction}
 
 \cite{socialAdHoc} studied ad hoc social networking with a social networking system called TWIN. In a survey conducted after the study, the method for approaching unfamiliar persons was one of the highest rated features of the system. \cite{mobileMatchmaking} conducted a survey where 90\% of the participants stated that they would use regularly a service which would help introduce nearby strangers to each other. Serendipity, the application created for their research, is a mobile match-making system which alerts users when someone with similar interests comes into proximity. The reactions to the system have been overwhelmingly positive. These results imply that systems which allow people to interact with familiar strangers are in fact desired by users.
@@ -49,9 +51,13 @@ This thesis focuses more on how to create and inspire social interaction rather 
 
 % TODO Add footnote to beacon models and source for bluetooth standards.
 
-The prototype application created for this thesis uses Bluetooth beacons. Most famous commercial beacons currently are iBeacons from Apple and Estimote beacons. The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard. In the prototype application created for this thesis, the beacons are used to log encounters with strangers. The beacons are constantly broadcasting a message and the Android application can detect beacons while doing sports. The beacons' MAC address are used to identify the beacons uniquely. Each user is able to register one beacon for their use in the application so storing the encounters is rather easy.
+The prototype application created for this thesis uses Bluetooth beacons. Most famous commercial beacons currently are iBeacons from Apple\footnote{\url{https://developer.apple.com/ibeacon/}} and Estimote\footnote{\url{http://estimote.com/}} beacons. The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. In the prototype application created for this thesis, the beacons are used to log encounters with strangers. The beacons are constantly broadcasting a message and the Android application can detect beacons while doing sports. The beacons' MAC address are used to identify the beacons uniquely. Each user is able to register one beacon for their use in the application so storing the encounters is rather easy.
 
-There are two roles in BLE. Some of the latest phones in the market are now also able to act as the peripheral role. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable of this, which results in that this prototype application would be hard to test with a big group because the phone models are still rare.
+The BLE protocol stack is divided into two parts, the controller and the host.
+
+\citep{bluetoothOverview} presents findings that Bluetooth low energy consumes a lot of battery power which can be reduced by requesting data less frequently from the BLE device. This needs to be taken into account while using and developing the prototype application in order to make it as efficient as possible.
+
+Some of the latest phones in the market are now also able to act as the peripheral role. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable of this, which results in that this prototype application would be hard to test with a big group because the phone models are still rare.
 
 \section{Interviews}
 
@@ -148,8 +154,6 @@ It is interesting too see whether revealing real life information one at a time 
 
 The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	keveloping Android applications. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
 
-Using the application requires users to get a Bluetooth beacon. The application uses the open  Eddystone protocol, so there is plenty of beacon models to choose from. Most popular Bluetooth beacon's at the moment of this thesis' creation are Apple's iBeacons and Estimote beacons\footnote{\url{http://estimote.com/}}.
-
 \subsection{Architecture}
 
 \begin{figure}[htb]
@@ -159,7 +163,7 @@ Using the application requires users to get a Bluetooth beacon. The application 
 	\end{center}
 \end{figure}
 
-The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime.
+The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. In addition to Firebase, the application uses an external chat service for the messaging feature.
 
 The application uses Firebase's authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
 
@@ -168,6 +172,13 @@ The application uses a background service to run the logging of encounters among
 Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
 
 \subsection{Description of functionality}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{fs_onboarding.png}
+		\caption{Filling personal information.}
+	\end{center}
+\end{figure}
 
 When starting the application for the first time an onboarding process wil begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list as seen in figure X. This completes the onboarding process and the user is now free to use the application.
 
