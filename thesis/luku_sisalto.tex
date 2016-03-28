@@ -31,7 +31,7 @@ Getting to know strangers and finding people to do sports with can be a daunting
 
 \subsection{Sports}
 
-Meeting strangers is only one part of the assumed benefits of the prototype application. One of the goals for the application is to encourage people to exercise more. \citep{foundations} presents how participating in sports improves us in various physical and social ways. 
+Meeting strangers is only one part of the assumed benefits of the prototype application. One of the goals for the application is to encourage people to exercise more. \citep{foundations} present how participating in sports improves us in various physical and social ways.
 
 Research done by \citep{joggingTheDistance} also suggests that doing sports with another person on a similar level of fitness can create and enhance social relationships between them. Therefore, finding a partner to do sports with benefits people and might result in better performance and motivation to do sports.
 
@@ -49,9 +49,9 @@ This thesis focuses more on how to create and inspire social interaction rather 
 
 \subsection{Bluetooth beacons}
 
-% TODO Add footnote to beacon models and source for bluetooth standards.
+The prototype application created for this thesis uses Bluetooth beacons to log when the familiar strangers encounter each other. Most popular commercial beacons currently are iBeacons from Apple\footnote{\url{https://developer.apple.com/ibeacon/}} and Estimote\footnote{\url{http://estimote.com/}} beacons. Some current popular use cases for the beacons are, for example targeted advertising in an airport and implementing an indoor location system.
 
-The prototype application created for this thesis uses Bluetooth beacons. Most famous commercial beacons currently are iBeacons from Apple\footnote{\url{https://developer.apple.com/ibeacon/}} and Estimote\footnote{\url{http://estimote.com/}} beacons. The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. In the prototype application created for this thesis, the beacons are used to log encounters with strangers. The beacons are constantly broadcasting a message and the Android application can detect beacons while doing sports. The beacons' MAC address are used to identify the beacons uniquely. Each user is able to register one beacon for their use in the application so storing the encounters is rather easy.
+The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. BLE is used for short-range communication. Typically the beacons are constantly broadcasting messages and used to do something special when an user comes near them. Unlike the traditional Bluetooth, BLE is designed to consume a lot less power and to be used with various kinds of monitoring services. BLE is expected to be used in billions of devices in the near future and to be a crucial part of the Internet of Things as presented by \citep{bluetoothOverview}.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -60,11 +60,9 @@ The prototype application created for this thesis uses Bluetooth beacons. Most f
 	\end{center}
 \end{figure}
 
-The BLE protocol stack is divided into two parts, the controller and the host.
+\citep{bluetoothOverview} show that there are two roles for BLE devices, advertisers and scanners. Advertisers are devices that only transmit advertising packets through the advertisement channel in intervals of time. These intervals are called advertising events. Scanners on the other hand only receive packets from the advertisement channel. In the prototype application created for this thesis, the Bluetooth beacons are advertisers and the mobile phones are scanners. Some of the latest phones in the market are now also able to act as both the scanner and the advertiser. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable both roles, which results in the fact that this prototype application would be harder to test with a big group because the phones capable of it are still rare.
 
-\citep{bluetoothOverview} presents findings that Bluetooth low energy consumes a lot of battery power which can be reduced by requesting data less frequently from the BLE device. This needs to be taken into account while using and developing the prototype application in order to make it as efficient as possible.
-
-Some of the latest phones in the market are now also able to act as the peripheral role. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable of this, which results in that this prototype application would be hard to test with a big group because the phone models are still rare.
+\citep{bluetoothOverview} also present findings that Bluetooth low energy consumes a lot of battery power which can be reduced by requesting data less frequently from the BLE device. This needs to be taken into account while using and developing the prototype application in order to make it as efficient as possible.
 
 \section{Interviews}
 
@@ -139,7 +137,7 @@ This prototype application is a mix of remote and local social interaction among
 	\end{center}
 \end{figure}
 
-When starting the application for the first time an onboarding process will begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list as seen in figure X. This completes the onboarding process and the user is now free to use the application.
+When starting the application for the first time an onboarding process will begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list. Beacon's MAC address is used to identify unique beacons and it is stored to the server. Therefore, every beacon is tied to an identifiable user. This completes the onboarding process and the user is now free to use the application.
 
 \subsection{Passing by}
 
