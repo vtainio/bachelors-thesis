@@ -21,37 +21,52 @@ The interviews were composed from open-ended questions where the goal was more t
 
 \section{Related work}
 
-% TODO kuvaile aihekenttää yleisemmin.
-
-This section presents related works from two perspectives: the social interaction perspective and the perspective of doing sports. The design of the prototype application relies on results from both of these perspectives.
-
-
+This section presents related works from multiple perspectives: the social interaction perspective, the perspective of doing sports, social sports and related technology used in the thesis. The design and implementation of the prototype application relies on results from this section.
 
 \subsection{Social interaction}
 
 \cite{socialAdHoc} studied ad hoc social networking with a social networking system called TWIN. In a survey conducted after the study, the method for approaching unfamiliar persons was one of the highest rated features of the system. \cite{mobileMatchmaking} conducted a survey where 90\% of the participants stated that they would use regularly a service which would help introduce nearby strangers to each other. Serendipity, the application created for their research, is a mobile match-making system which alerts users when someone with similar interests comes into proximity. The reactions to the system have been overwhelmingly positive. These results imply that systems which allow people to interact with familiar strangers are in fact desired by users.
 
+Getting to know strangers and finding people to do sports with can be a daunting task especially for people who have just moved to a new city or a country. It is important to make finding strangers as easy as possible with the use of modern technology without compromising the privacy of the users.
+
 \subsection{Sports}
 
-Meeting strangers is only one part of the assumed benefits of the prototype application. Previous research suggests that doing sports in a group or together with a friend results in increased performance. Therefore, the findings suggest that finding strangers with similar interests and a similar level of fitness to do sports with would result in a performance increase for the user. However, finding people to do sports with can be an daunting task especially for people who have just moved to a new city or a country. It is important to make finding strangers as easy as possible with the use of modern technology without compromising the privacy of the users.
+Meeting strangers is only one part of the assumed benefits of the prototype application. Participation in sports improves us in various physical and social ways as presented in \citep{foundations}. 
+
+Research done by \citep{joggingTheDistance} suggests that doing sports with another person on a similar level of fitness can create and enhance social relationships between the runners.
+
+% Mieti: Therefore, the findings suggest that finding strangers with similar interests and a similar level of fitness to do sports with would result in a performance increase for the user. 
 
 One of the concerns of creating the application is that how frequently people doing sports actually meet familiar strangers. Setting the level of passing by's before allowing users to communicate with each other affects the whole user experience of the prototype application. Research by \cite{runningNavigation} showed that distance is the key thing what joggers are thinking about while running, not about using familiar routes. However, while routes change, joggers use familiar locations more than once. They usually leave out a part or add one based on their overall feeling. The fact, that joggers reuse locations increases the probability of running into familiar strangers along the way.
 
 \subsection{Social sports}
 
-This section cover previous research about social sports.
+Social sports platforms have emerged during the last years. Plenty of commercial mobile applications already are used by millions of people. Applications that log your sports data e.g. running distance and heart rate are one example of the usage of technology to enhance performance during sports. Other more unique examples of applications are, for example Running over distance, where users can run virtually together with a real person across the planet. The system gives information about the movements of the other person and the intention is that you would feel like running besides the other participant.
+
+Technology can also aid your postures and performance during the sport. \cite{augmentedClimbing} presents a project called augmented climbing. The paper is about interacting with projected graphics in a climbing wall and it shows how projectors can be used to create a social aspect to wall climbing. The projector can, for example make the sports activity into a game by providing an obstacle that the user has to be aware of or it can, for example enhance your climbing capabilities by showing what is the best route to follow.
+
 
 \cite{joggingOverDistance} present a social prototype application called "Jogging over a Distance", where two people can jog together across the globe aided by technology. The system works so that two runners agree to jog during the same time and both agree to wear a headset and a heart rate monitor during the activity. The runners have a computer and a mobile phone with them for communicating and transmitting data among the runners. While jogging, both can hear the audio from the other runner. In addition to being able to speak with the other runner, the system uses two dimensional voice to present the relative heart rate of the other runner. This audio shows the runner whether they are running too fast or too slowly and they can adjust their speed with that information.
 
 \cite{augmentedClimbing} presents a project called augmented climbing. The paper is about interacting with projected graphics in a climbing wall. 
 
-This thesis focuses more on how to create and inspire social interaction rather than how the interaction can be enhanced during the sports activity. However, these  findings support the view that social and augmented technology can increase performance in sports and turn a hard job into a more social play.
+This thesis focuses more on how to create and inspire social interaction rather than how the interaction can be enhanced during the sports activity. However, these  findings support the view that social and augmented technology can increase performance in sports and turn a hard job into a more social play. The prototype application wants to connect like minded people to increase their performance. Fish’N’Steps pedometer has a similar idea to enhance the performance of people. However, the system does it in a different way by using peer pressure to increase participation. Not all people doing sports want to make it a social event, but for some it will mean a lot to have someone to push you over the limit and to have social interaction with.
+
+Studies suggest that doing sports activities together connects people deeper. Therefore, doing sports together with strangers can lead to new social relationships that wouldn’t happen otherwise.
+
 
 \subsection{Bluetooth beacons}
 
 % TODO Add footnote to beacon models and source for bluetooth standards.
 
 The prototype application created for this thesis uses Bluetooth beacons. Most famous commercial beacons currently are iBeacons from Apple\footnote{\url{https://developer.apple.com/ibeacon/}} and Estimote\footnote{\url{http://estimote.com/}} beacons. The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. In the prototype application created for this thesis, the beacons are used to log encounters with strangers. The beacons are constantly broadcasting a message and the Android application can detect beacons while doing sports. The beacons' MAC address are used to identify the beacons uniquely. Each user is able to register one beacon for their use in the application so storing the encounters is rather easy.
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{estimote_beacons.jpg}
+		\caption{The insides of an Estimote Bluetooth beacon. © by Estimote, Inc.}
+	\end{center}
+\end{figure}
 
 The BLE protocol stack is divided into two parts, the controller and the host.
 
@@ -66,6 +81,32 @@ This section describes the methods used for the interviews and the results gaine
 \subsection{Method for the interviews}
 
 The interviews consist multiple open-ended questions. The goal is to find out information about how people behave while doing sports and what are their thoughts about the prototype application. The main questions for the interview are are located in appendix \ref{sec:app1_1}.
+
+This form was used to conduct the interviews.
+
+\begin{itemize}
+	\item Age?
+	\item What sports are you doing?
+	\item How often do you do sports?
+	\item What kind of sports goals do you have?
+		\begin{itemize}
+			\item What is keeping you from achieving them / what has helped you achieve them?
+		\end{itemize}
+	\item What do you carry with you while doing sports?
+	\item Do you do it alone or with friends?
+		\begin{itemize}
+			\item Which one do you like more?
+		\end{itemize}
+	\item How does your motivation differ while doing sports by yourself and in a group?
+	\item Have you interacted with strangers while doing sports?
+		\begin{itemize}
+			\item If so, how?
+		\end{itemize}
+	\item Have you used any kind of tools to find people to do sports with?
+	\item Do you use any sports tracking applications?
+	\item What information about your sporting habits would you be willing to share with strangers that you come across often?
+	\item Would you be interested in trying out a tool which would suggest messaging people that you come across often while doing sports?
+\end{itemize}
 
 The questions aren't meant to be strict but just as a guideline for the discussion. If new interesting discussions emerge while interviewing, the idea is to go forward with them without thinking too much about the guideline.
 
@@ -110,7 +151,9 @@ Interviews of three people aren't enough to draw exact conclusions about whether
 
 \section{Design}
 
-The prototype application's main goal is to allow people to connect with familiar strangers and find people to do sports with. Of course the application can be used for other purposes than just sports, but it is mainly designed for that challenge. It will be interesting to see whether it is used for just random encounters instead of encounters with a specific goal in mind (sports in this case). The designed process of meeting a familiar strangers and connecting with them can be divided into a few steps.
+The prototype application's main goal is to allow people to connect with familiar strangers and to find like-minded people to do sports with. Of course the underlying concepts can be used for other purposes than just sports, but this prototype is designed for sports. Especially part related to social interaction could be imported into a dating application for example. However, this thesis doesn't cover any other use cases for this prototype application.
+
+The designed process of meeting a familiar strangers and connecting with them can be divided into a few steps.
 
 \begin{itemize}
 	\item Pass by the person enough times
@@ -119,46 +162,49 @@ The prototype application's main goal is to allow people to connect with familia
 	\item View their real-life information after both agree to do it and start doing sports with them.
 \end{itemize}
 
-This prototype application is a mix of remote and social interaction among people assisted with technology. Users are able to chat with familiar strangers remotely but real life proximity is required to start these conversations. The aim is to push the boundaries of how social interaction is initialized among strangers. Shared common interests are often the starters for social interaction among strangers and the application tries to highlight these common interests and make the process as smooth as possible.
+This prototype application is a mix of remote and local social interaction among people assisted by technology. Users are able to chat with familiar strangers remotely but real life proximity is required to initialize these conversations. The aim is to push the boundaries of how social interaction is initialized among strangers. In this prototype application, shared common interests are the starters for social interaction among strangers. The process is designed to be as smooth as possible in order to find new people to do sports with.
 
 \subsection{Passing by}
 
-Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. The hard part of this section is to select the amount of pass by's that initialize communication between the users. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. Three times will most likely be too low when the amount of users for the application grow. If a larger study is done later to validate the users behaviors, the amount should be increased. The users are also able to select the amount themselves before other users are able to approach them with messages. The conducted interview suggests that people would be interested to see the public interests of strangers even with low encounters.
+Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. Therefore, only carrying a Bluetooth beacon might end up resulting in encounters inside the application but it is not guaranteed. In the case where both users only have a beacon with them, no encounters will be stored. The amount of pass by's that initialize communication between the users is adjustable in the prototype for better examining of how much is required for social interaction later on. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. The amount could also in the future be adjusted based on how frequent the use of the application is in the area. With low use, it is harder to encounter anyone and likely will lead to not using the application as often. If a larger study is done later to validate the users behaviors, the amount should be increased to engage people more during the research process.
 
-The users are also able to select few requirements for the encounters, such as sex of the stranger. Therefore, if the user is searching for male joggers, no females will be suggested for interaction.
+One option is also to modify the application so that the users are able to select the amount themselves before other users are able to approach them with messages. The option of filtering the strangers with some parameters, such as sex was brought up in the interviews. The conducted interview also suggested that users would be interested to see the public interests of strangers even with low encounters in order to find a like-minded stranger more easily.
 
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{encounters.png}
-		\caption{A list of encounters (name and how many times)}	
+		\caption{A list of encounters (made up name and how many times)}	
 	\end{center}
 \end{figure}
 
-The user is able to view how many people they have come encountered from a list in the application. The list shows the user with an unique identification (not their real name) and also the times they have come across each other. If the strangers has enabled other information to be public, such as a profile picture, those will be displayed at this point as well.
+%TODO make correct references to the figure.
 
-The logging can be turned on and off whenever the user feels like it. The reason could be that the user is in a place where they do not want to encounter anyone or have a record of the location stored in the application or if they want to save battery by closing every Bluetooth connection. It will also be interesting to see whether people will keep it on always, or just during the activities they want to perform with other people, such as sports.
+In the application, users are able to view how many people they have come encountered from a list in the application as seen in Figure X. The list shows the user with an unique identification (not their real name) and also the times they have come across each other. These users have encountered the threshold of encounters. Strangers with less encounters than required will not be visible in any way to the user before reaching the target.
+
+The logging can be turned on and off whenever the user feels like it. This is a requirement from the mobile application providers and also a feature requested in the conducted interviews. The reason could be that the user is in a place where they do not want to encounter anyone or have a record of the location stored in the application or if they want to save battery by closing every Bluetooth connection.
 
 \subsection{Approaching the stranger}
 
-After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. The user will see the other persons public interest that they have filled while registering to the application and also display on a map where they have encountered each other. As a result of the interviews conducted for this thesis, I decided not to include any other visible data for other users at this point. Based on the literature review of this thesis and the interviews, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users. However, the user can optionally display more information, such as a profile picture already at this stage.
+After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. The user will be able to send messages and view their public interests that they have filled during the onboarding process. In addition to the filled information, the user is able to see the locations of encounters on a map, to make sense of where the other person is doing sports and what sports based on the users own behavior. 
 
-The interaction can stay anonymous as long as the users want to. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be interested in doing sports together. The chat is meant for users to verify similar interests and goals before getting to know each other better. If the interests and goals do not match, either user can ignore the other person and they will not be in any kind of interaction via the application ever again.
+%TODO Reference the correct paper.
+Based on the literature review of this thesis and the interviews, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users as users are open about reaching out to strangers.
+
+The interaction can stay anonymous (with temporary names) as long as the users want to. The anonymity was selected based on the privacy concerns of the conducted interview. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be interested in doing sports together. The chat is meant for users to verify similar interests and goals before getting to know each other better. If the interests and goals do not match, the user can ignore the other person and they will not be in any kind of interaction via the application ever again.
 
 \subsection{Revealing identity}
 
-At some point, it is necessary to reveal real life information in order to initialize social interaction among the two strangers. The real life information should be revealed only after both parties feel entirely comfortable with the idea. There, in this prototype application, it is possible for the user to request real life information from the other person and only after both parties agree to reveal information will anything be revealed. The information can be revealed one piece at a time or all at once. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Most likely the two will not continue chatting via this application after this point, but it is possible to do so. A record of their communication is left on the app, and it will not log any encounters from the other person anymore at this point. Until real life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user removes them manually.
-
-It is interesting too see whether revealing real life information one at a time create a more comfortable environment or will everyone just reveal all of the information at once. I was unable to find any references to a similar method used in another application. Therefore, this kind of a mutual information revealing piece by piece seems to be quite new in the field.
+At some point, the users must reveal some real life information in order to meet in person and to do sports with. This can be done only by messaging related information via the application. However, the application also introduces a feature, that the users can use to reveal real life information to one another. The real life information should be revealed only after both parties feel entirely comfortable with the idea. In the prototype, a mutual agreement of revealing real life information is required in order for it to happen. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Their profiles in the application will now be visible with their real names. A record of their communication is left on the app, and it will not log any encounters from the other person anymore at this point. Until real life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user chooses to remove them manually.
 
 \section{Prototype implementation}
 
-The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	keveloping Android applications. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
+The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	eveloping Android applications. Null safety by default, drastically less boilerplate code compared to a traditional Java application for Android and great development tools where the key elements for the success of using Kotlin. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
 
 \subsection{Architecture}
 
 \begin{figure}[htb]
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{fs_architecture.png}
+		\includegraphics[width=1\textwidth]{fs_architecture.png}
 		\caption{The application architecture.}	
 	\end{center}
 \end{figure}
