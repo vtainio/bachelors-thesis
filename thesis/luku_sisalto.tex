@@ -164,6 +164,17 @@ The designed process of meeting a familiar strangers and connecting with them ca
 
 This prototype application is a mix of remote and local social interaction among people assisted by technology. Users are able to chat with familiar strangers remotely but real life proximity is required to initialize these conversations. The aim is to push the boundaries of how social interaction is initialized among strangers. In this prototype application, shared common interests are the starters for social interaction among strangers. The process is designed to be as smooth as possible in order to find new people to do sports with.
 
+\subsection{Onboarding}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{fs_onboarding.png}
+		\caption{Filling personal information.}
+	\end{center}
+\end{figure}
+
+When starting the application for the first time an onboarding process will begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list as seen in figure X. This completes the onboarding process and the user is now free to use the application.
+
 \subsection{Passing by}
 
 Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. Therefore, only carrying a Bluetooth beacon might end up resulting in encounters inside the application but it is not guaranteed. In the case where both users only have a beacon with them, no encounters will be stored. The amount of pass by's that initialize communication between the users is adjustable in the prototype for better examining of how much is required for social interaction later on. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. The amount could also in the future be adjusted based on how frequent the use of the application is in the area. With low use, it is harder to encounter anyone and likely will lead to not using the application as often. If a larger study is done later to validate the users behaviors, the amount should be increased to engage people more during the research process.
@@ -209,24 +220,14 @@ The created prototype is an Android\footnote{\url{https://www.android.com/}} app
 	\end{center}
 \end{figure}
 
-The application is divided into a client (the Android application) and a backend (server). The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. In addition to Firebase, the application uses an external chat service for the messaging feature.
+%TODO reference the correct figure.
+The main parts of the prototype application are the client (the Android application) and the backend (server) as demonstrated in figure X. The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. In addition to Firebase, the application uses an external chat service for the messaging feature.
 
-The application uses Firebase's authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
+The application uses Firebase's default authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
 
-The application uses a background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones. It remains to see, if the application uses too much battery so that the users will uninstall the application.
+The application uses a background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones as described by \citep{bluetoothOverview}.
 
-Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
-
-\subsection{Description of functionality}
-
-\begin{figure}[htb]
-	\begin{center}
-		\includegraphics[width=0.4\textwidth]{fs_onboarding.png}
-		\caption{Filling personal information.}
-	\end{center}
-\end{figure}
-
-When starting the application for the first time an onboarding process wil begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list as seen in figure X. This completes the onboarding process and the user is now free to use the application.
+Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future. The external chat service has push notifications enabled, but this is a different system to the applications own backend. Therefore, push notifications work for the messaging feature but nothing else.
 
 \subsection{Using the prototype}
 
@@ -238,16 +239,20 @@ This section analyses the results that the study produced and what should be don
 
 \subsection{Results of the study}
 
+The literature review of the application showed that social sports applications have been studied to increase social interaction even in completely remote and virtual environments. In addition, to social sports it was shown that doing sports together with other people facilitates social interaction among the people. Therefore, the basis for the application's premises is well researched.
+
 The conducted interviews presented multiple interesting points of views. However, as the amount of interviews is so low, it is not possible to draw general conclusions about the behavior models of users. The results served their purpose in giving general direction to the prototype application's design process and therefore resulted in very valuable information for this study.
 
-The prototype application is functional and it its possible to use it for further research. The application is also open source so it's easy to take into use in any research facilities across the globe.
+The prototype application is functional and it its possible to use it for further research. The application is also open source with a permissive license so it's easy to take it into use in any research facility or even commercial use.
 
 \subsection{Future work}
 
-A larger study should be conducted to validate the behavior models and assumptions that were generated by the conducted interviews. In addition to researching the behavior models of doing social interaction among familiar strangers, the prototype application should be used for more and bigger research.
+A larger study should be conducted to validate the behavior models and assumptions that were generated by the conducted interviews. In addition to researching the behavior models of doing social interaction among familiar strangers, the prototype application should be used for more and larger research. Elements of this prototype application could also be introduced outside the concept of sports in order to research whether there are any differences in the behavior of these groups.
 
-Doing research with this application requires quite a big user study in order to create an environment where actual encounters with strangers will happen. Unfortunately no such large study has been done for this thesis, but as the application is licensed with an open source license, hopefully such study will see the light of day sometime in the near future. The future research done by this application should also take into account different kinds of sports and the 	behavior among them.
+It might be best to conduct research with this application in a certain geographical area such as an university campus or a regular neighborhood. Then it is more likely that encounters will happen as real life proximity is required for them.
 
-Some additional functionality is planned for the application. The proposed features are listed in the GitHub page of the application. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome.
+Some additional functionality is planned for the application. The proposed features are listed in the GitHub page of the application. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome and will be merged to the prototype application.
+
+No user testing has been done for this prototype application. However, as the application is licensed with an open source license, hopefully a study will see the light of day sometime in the near future.
 
 % --------------------------------------------------------------------
