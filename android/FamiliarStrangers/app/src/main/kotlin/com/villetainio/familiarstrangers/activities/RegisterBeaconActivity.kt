@@ -1,10 +1,10 @@
 package com.villetainio.familiarstrangers.activities
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Toast
 import com.estimote.sdk.*
 import com.firebase.client.Firebase
 import com.villetainio.familiarstrangers.util.Constants
@@ -48,7 +48,7 @@ class RegisterBeaconActivity : AppCompatActivity() {
 
                 recyclerView.adapter = BeaconListAdapter(beacons, object: BeaconListAdapter.OnBeaconClickListener {
                     override fun onBeaconClick(macAddress: String) {
-                        Toast.makeText(applicationContext, macAddress, Toast.LENGTH_LONG).show()
+                        storeBeaconToFirebase(macAddress)
                     }
                 })
                 recyclerView.layoutManager = LinearLayoutManager(this)
@@ -62,9 +62,20 @@ class RegisterBeaconActivity : AppCompatActivity() {
     }
 
     /**
-     * Finish onboarding successfully
+     * Save beacon to Firebase.
      */
-    fun finishOnBoarding() {
+    fun storeBeaconToFirebase(macAddress: String) {
+        val userId = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(getString(R.string.settings_uid), "")
+        val beaconRef = firebase.child(getString(R.string.firebase_beacons)).child(macAddress)
+        beaconRef.child(getString(R.string.firebase_beacons_user)).setValue(userId)
+        finishBeaconRegister()
+    }
+
+    /**
+     * Finish beacon registering successfully
+     */
+    fun finishBeaconRegister() {
         setResult(RESULT_OK)
         finish()
     }

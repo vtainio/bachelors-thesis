@@ -29,6 +29,8 @@
     <string name="firebase_users">users</string>
     <string name="firebase_users_fullname">name</string>
     <string name="firebase_users_interests">interests</string>
+    <string name="firebase_beacons">beacons</string>
+    <string name="firebase_beacons_user">user</string>
 
     <string name="menu_logout">logout</string>
 
