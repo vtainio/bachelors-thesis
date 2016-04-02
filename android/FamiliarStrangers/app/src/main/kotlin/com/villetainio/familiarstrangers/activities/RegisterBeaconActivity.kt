@@ -8,7 +8,7 @@ import com.estimote.sdk.*
 import com.firebase.client.Firebase
 import com.villetainio.familiarstrangers.util.Constants
 import com.villetainio.familiarstrangers.R
-import com.villetainio.familiarstrangers.adapter.BeaconListAdapter
+import com.villetainio.familiarstrangers.adapters.BeaconListAdapter
 import com.villetainio.familiarstrangers.models.CustomBeacon
 import java.util.*
 

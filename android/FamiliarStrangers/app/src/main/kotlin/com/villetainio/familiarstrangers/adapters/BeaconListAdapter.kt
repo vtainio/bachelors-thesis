@@ -1,4 +1,4 @@
-package com.villetainio.familiarstrangers.adapter
+package com.villetainio.familiarstrangers.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

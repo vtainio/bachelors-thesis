@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.view.View
 import com.firebase.client.Firebase
 import com.villetainio.familiarstrangers.R
-import com.villetainio.familiarstrangers.adapter.EncountersAdapter
+import com.villetainio.familiarstrangers.adapters.EncountersAdapter
 import com.villetainio.familiarstrangers.models.Encounter
 import com.villetainio.familiarstrangers.util.Constants
 import java.util.ArrayList
