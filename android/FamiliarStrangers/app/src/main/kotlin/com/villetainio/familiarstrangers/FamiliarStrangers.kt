@@ -7,7 +7,6 @@ import com.firebase.client.Firebase
 import com.estimote.sdk.Beacon
 import android.util.Log
 import com.villetainio.familiarstrangers.util.Constants
-import java.util.*
 
 class FamiliarStrangers : Application() {
     val TAG = "BeaconService"
@@ -39,6 +38,6 @@ class FamiliarStrangers : Application() {
     }
 
     fun storeEncounter(macAddress: String, firebase: Firebase) {
-        //TODO store encounter to Firebase based on the beacon mac address.
+
     }
 }

@@ -1,5 +1,6 @@
 package com.villetainio.familiarstrangers.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.villetainio.familiarstrangers.util.Constants
 
 class OnBoardingActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
+    val beaconRegisterRequestCode = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,13 @@ class OnBoardingActivity : AppCompatActivity() {
     override fun onBackPressed() {
         setResult(RESULT_OK)
         super.onBackPressed()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == beaconRegisterRequestCode && resultCode == RESULT_OK) {
+            setResult(RESULT_OK)
+            finish()
+        }
     }
 
     /**
@@ -80,14 +89,14 @@ class OnBoardingActivity : AppCompatActivity() {
         userRef.child(getString(R.string.firebase_users_fullname)).setValue(fullName)
         userRef.child(getString(R.string.firebase_users_interests)).setValue(interests)
 
-        finishOnBoarding()
+        moveToBeaconRegistering()
     }
 
     /**
-     * Finish onboarding successfully
+     * Move to registering a beacon for the user.
      */
-    fun finishOnBoarding() {
-        setResult(RESULT_OK)
-        finish()
+    fun moveToBeaconRegistering() {
+        val beaconRegisterIntent = Intent(this@OnBoardingActivity, RegisterBeaconActivity::class.java)
+        startActivityForResult(beaconRegisterIntent, beaconRegisterRequestCode)
     }
 }

@@ -37,6 +37,9 @@
         <activity android:name=".activities.SettingsActivity"
             android:label="@string/activity_label_settings" />
 
+        <activity android:name=".activities.RegisterBeaconActivity"
+                  android:label="Register Beacon" />
+
     </application>
 
 </manifest>
