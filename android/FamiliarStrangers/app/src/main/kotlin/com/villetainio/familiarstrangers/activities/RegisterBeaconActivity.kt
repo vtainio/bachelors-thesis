@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import com.estimote.sdk.*
 import com.firebase.client.Firebase
 import com.villetainio.familiarstrangers.util.Constants
@@ -45,7 +46,11 @@ class RegisterBeaconActivity : AppCompatActivity() {
                             Utils.computeAccuracy(beacon)))
                 }
 
-                recyclerView.adapter = BeaconListAdapter(beacons)
+                recyclerView.adapter = BeaconListAdapter(beacons, object: BeaconListAdapter.OnBeaconClickListener {
+                    override fun onBeaconClick(macAddress: String) {
+                        Toast.makeText(applicationContext, macAddress, Toast.LENGTH_LONG).show()
+                    }
+                })
                 recyclerView.layoutManager = LinearLayoutManager(this)
             }
         } }
