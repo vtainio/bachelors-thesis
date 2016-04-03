@@ -9,13 +9,22 @@ import java.util.*
 import com.villetainio.familiarstrangers.R
 import com.villetainio.familiarstrangers.models.Encounter
 
-class EncountersAdapter(encounters: ArrayList<Encounter>) : RecyclerView.Adapter<EncountersAdapter.CustomViewHolder>() {
+class EncountersAdapter(encounters: ArrayList<Encounter>, listener: OnEncounterClickListener? = null) : RecyclerView.Adapter<EncountersAdapter.CustomViewHolder>() {
     val mEncounters = encounters
+    var mListener: OnEncounterClickListener? = listener
+
+    interface OnEncounterClickListener {
+        fun onEncounterClick(userId: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CustomViewHolder {
         val infl = LayoutInflater.from(parent.context)
         var view = infl.inflate(R.layout.item_encounters, parent, false)
-        return CustomViewHolder(view)
+        return CustomViewHolder(view, object: CustomViewHolder.OnViewClickListener {
+            override fun onViewClick(v: View, adapterPosition: Int) {
+                mListener?.onEncounterClick(mEncounters.get(adapterPosition).userId)
+            }
+        })
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
@@ -29,8 +38,20 @@ class EncountersAdapter(encounters: ArrayList<Encounter>) : RecyclerView.Adapter
     }
 
     open class CustomViewHolder : RecyclerView.ViewHolder {
-        constructor(itemView: View): super(itemView) {}
+        var mListener: OnViewClickListener? = null
         val personName = itemView.findViewById(R.id.personName) as TextView
         val timesOfEncounters = itemView.findViewById(R.id.timesOfEcounters) as TextView
+
+        interface OnViewClickListener {
+            fun onViewClick(v: View, adapterPosition: Int)
+        }
+
+        constructor(itemView: View, listener: OnViewClickListener): super(itemView) {
+            mListener = listener
+            personName.setOnClickListener(onClickListener)
+            timesOfEncounters.setOnClickListener(onClickListener)
+        }
+
+        val onClickListener = View.OnClickListener() { view -> mListener?.onViewClick(view, adapterPosition) }
     }
 }

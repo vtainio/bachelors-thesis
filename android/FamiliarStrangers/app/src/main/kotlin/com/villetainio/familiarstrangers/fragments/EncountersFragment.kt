@@ -45,13 +45,18 @@ class EncountersFragment : Fragment() {
                         encountersList.add(
                                 Encounter(
                                         encounter.child(getString(R.string.firebase_users_encounters_name)).value as String,
-                                        encounter.child(getString(R.string.firebase_users_encounters_amount)).value as Long
+                                        encounter.child(getString(R.string.firebase_users_encounters_amount)).value as Long,
+                                        encounter.key
                                 )
                         )
                     }
                 }
 
-                recyclerView.adapter = EncountersAdapter(encountersList)
+                recyclerView.adapter = EncountersAdapter(encountersList, object: EncountersAdapter.OnEncounterClickListener {
+                    override fun onEncounterClick(userId: String) {
+                        Toast.makeText(context, userId, Toast.LENGTH_LONG).show()
+                    }
+                })
                 recyclerView.layoutManager = LinearLayoutManager(activity)
             }
 
