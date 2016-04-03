@@ -1,3 +1,3 @@
 package com.villetainio.familiarstrangers.models
 
-data class Encounter(val name: String = "", val times: Int = 0)
+data class Encounter(val name: String = "", val times: Long = 0)

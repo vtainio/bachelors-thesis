@@ -1,11 +1,16 @@
 package com.villetainio.familiarstrangers
 
 import android.app.Application
+import android.preference.PreferenceManager
 import com.estimote.sdk.BeaconManager
 import com.estimote.sdk.Region
 import com.firebase.client.Firebase
 import com.estimote.sdk.Beacon
 import android.util.Log
+import android.widget.Toast
+import com.firebase.client.DataSnapshot
+import com.firebase.client.FirebaseError
+import com.firebase.client.ValueEventListener
 import com.villetainio.familiarstrangers.util.Constants
 
 class FamiliarStrangers : Application() {
@@ -27,7 +32,20 @@ class FamiliarStrangers : Application() {
                 Log.d(TAG, "Beacon found");
 
                 // Store encounter to Firebase
-                storeEncounter(list.first().macAddress.toHexString(), firebase)
+                for (beacon: Beacon in list) {
+                    Log.d(TAG, beacon.macAddress.toHexString())
+                }
+
+                val detectedMac = list.first().macAddress.toHexString()
+                val preferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                val userId = preferences.getString(getString(R.string.settings_uid), "")
+                val beaconRegistered = preferences.getBoolean(getString(R.string.settings_beacon_registerd), false)
+                val ownMac = preferences.getString(getString(R.string.settings_beacon_mac), "")
+
+                // Check that the user has registerd or logged in before storing encounters.
+                if (userId.length != 0 && beaconRegistered && !detectedMac.equals(ownMac)) {
+                    storeEncounter(detectedMac, firebase)
+                }
             }
 
             override fun onExitedRegion(region: Region) {
@@ -38,6 +56,53 @@ class FamiliarStrangers : Application() {
     }
 
     fun storeEncounter(macAddress: String, firebase: Firebase) {
+        val strangerRef = firebase.child(getString(R.string.firebase_beacons))
+                .child(macAddress)
 
+        strangerRef.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val strangerId = snapshot.child("user").value as String
+                    val strangerName = snapshot.child("name").value as String
+                    storeEncounterToUsersProfile(firebase, strangerId, strangerName)
+                }
+            }
+
+            override fun onCancelled(error: FirebaseError) {
+                showError(error.message)
+            }
+        })
+    }
+
+    fun storeEncounterToUsersProfile(firebase: Firebase, id: String, name: String) {
+        val userId = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(getString(R.string.settings_uid), "")
+        val encounterRef = firebase.child(getString(R.string.firebase_users))
+                .child(userId)
+                .child(getString(R.string.firebase_users_encounters))
+                .child(id)
+
+        encounterRef.child(getString(R.string.firebase_users_encounters_name)).setValue(name)
+        encounterRef.child(getString(R.string.firebase_users_encounters_amount))
+                .addListenerForSingleValueEvent(object: ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            val amount = snapshot.value as Long
+                            encounterRef.child(getString(R.string.firebase_users_encounters_amount))
+                                    .setValue(amount + 1)
+                        } else {
+                            encounterRef.child(getString(R.string.firebase_users_encounters_amount))
+                                .setValue(1)
+                        }
+                    }
+
+                    override fun onCancelled(error: FirebaseError) {
+                        showError(error.message)
+                    }
+                })
+    }
+
+    fun showError(error: String, length: Int = Toast.LENGTH_LONG) {
+        Toast.makeText(applicationContext, error, length)
     }
 }

@@ -8,11 +8,13 @@
     <string name="settings_full_name">settingsFullName</string>
     <string name="settings_interests">settingsInterests</string>
     <string name="settings_email">settingsEmail</string>
+    <string name="settings_beacon_registerd">beaconRegistered</string>
+    <string name="settings_beacon_mac">beaconMacAddress</string>
 
     <string name="error_user_does_not_exits">User does not exist.</string>
     <string name="error_invalid_password">Invalid password</string>
     <string name="error_passwords_do_not_match">Password do not match</string>
-    <string name="error_default">Error occured</string>
+    <string name="error_default">Error occurred</string>
     <string name="error_empty_full_name">You must insert a name.</string>
 
     <string name="label_email">Email</string>
@@ -31,6 +33,10 @@
     <string name="firebase_users_interests">interests</string>
     <string name="firebase_beacons">beacons</string>
     <string name="firebase_beacons_user">user</string>
+    <string name="firebase_beacons_name">name</string>
+    <string name="firebase_users_encounters">encounters</string>
+    <string name="firebase_users_encounters_amount">amount</string>
+    <string name="firebase_users_encounters_name">name</string>
 
     <string name="menu_logout">logout</string>
 

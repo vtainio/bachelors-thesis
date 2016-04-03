@@ -48,6 +48,11 @@ class RegisterBeaconActivity : AppCompatActivity() {
 
                 recyclerView.adapter = BeaconListAdapter(beacons, object: BeaconListAdapter.OnBeaconClickListener {
                     override fun onBeaconClick(macAddress: String) {
+                        // Store the beacon's Mac address locally.
+                        PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                            .edit()
+                            .putString(getString(R.string.settings_beacon_mac), macAddress)
+                            .apply()
                         storeBeaconToFirebase(macAddress)
                     }
                 })
@@ -65,10 +70,14 @@ class RegisterBeaconActivity : AppCompatActivity() {
      * Save beacon to Firebase.
      */
     fun storeBeaconToFirebase(macAddress: String) {
-        val userId = PreferenceManager.getDefaultSharedPreferences(this)
-                .getString(getString(R.string.settings_uid), "")
+        //TODO Check if the beacon already exists and prevent storing in that situation.
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val userId = preferences.getString(getString(R.string.settings_uid), "")
+        val name = preferences.getString(getString(R.string.settings_full_name), "")
+
         val beaconRef = firebase.child(getString(R.string.firebase_beacons)).child(macAddress)
         beaconRef.child(getString(R.string.firebase_beacons_user)).setValue(userId)
+        beaconRef.child(getString(R.string.firebase_beacons_name)).setValue(name)
         finishBeaconRegister()
     }
 
@@ -76,7 +85,13 @@ class RegisterBeaconActivity : AppCompatActivity() {
      * Finish beacon registering successfully
      */
     fun finishBeaconRegister() {
+        // Store information that a beacon has been registered to the user.
+        PreferenceManager.getDefaultSharedPreferences(applicationContext)
+            .edit()
+            .putBoolean(getString(R.string.settings_beacon_registerd), true)
+            .apply()
         setResult(RESULT_OK)
+        beaconManager?.stopRanging(region)
         finish()
     }
 }
