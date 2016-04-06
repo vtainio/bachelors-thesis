@@ -38,7 +38,10 @@
             android:label="@string/activity_label_settings" />
 
         <activity android:name=".activities.RegisterBeaconActivity"
-                  android:label="Register Beacon" />
+            android:label="Register Beacon" />
+
+        <activity android:name=".activities.EncounterActivity"
+            android:label="Encounter" />
 
     </application>
 

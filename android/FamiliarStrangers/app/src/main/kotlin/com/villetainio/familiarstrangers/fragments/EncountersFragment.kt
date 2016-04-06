@@ -1,5 +1,6 @@
 package com.villetainio.familiarstrangers.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
@@ -11,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import com.firebase.client.*
 import com.villetainio.familiarstrangers.R
+import com.villetainio.familiarstrangers.activities.EncounterActivity
 import com.villetainio.familiarstrangers.adapters.EncountersAdapter
 import com.villetainio.familiarstrangers.models.Encounter
 import com.villetainio.familiarstrangers.util.Constants
@@ -54,7 +56,11 @@ class EncountersFragment : Fragment() {
 
                 recyclerView.adapter = EncountersAdapter(encountersList, object: EncountersAdapter.OnEncounterClickListener {
                     override fun onEncounterClick(userId: String) {
-                        Toast.makeText(context, userId, Toast.LENGTH_LONG).show()
+
+                        // Start a new activity for the selected stranger.
+                        val profileIntent = Intent(activity, EncounterActivity::class.java)
+                        profileIntent.putExtra("userId", userId)
+                        startActivity(profileIntent)
                     }
                 })
                 recyclerView.layoutManager = LinearLayoutManager(activity)

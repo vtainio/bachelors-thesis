@@ -108,4 +108,3 @@ class LoginActivity : AppCompatActivity() {
         startActivityForResult(registerIntent, registerRequestCode)
     }
 }
-
