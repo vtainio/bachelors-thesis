@@ -1,0 +1,1 @@
+This application is licensed under the Apache (2.0) license.
