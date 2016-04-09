@@ -18,6 +18,7 @@ This paper presents a prototype Android application that will log the times stra
 The application uses Bluetooth beacons to identify the strangers and log the encounters to a web server. This enables the users to interact with the strangers also outside the sports activity itself. They don't have to approach the strangers while doing sports. They can later on interact with people they have met while doing sports and find like-minded people to do sports with. 
 
 The interviews were composed from open-ended questions where the goal was more to find new information rather than just to validate previous assumptions. The interviews were extensive and performed only for a handful of possible end users of the application. No survey's were conducted for this thesis.
+\clearpage
 
 \section{Related work}
 
@@ -63,6 +64,7 @@ The beacons implement a protocol called Bluetooth low energy (BLE), which is a p
 \cite{bluetoothOverview} show that there are two functions for BLE devices, advertisement and scanning. Advertisers are devices that only transmit advertising packets through the advertisement channel in intervals of time. These intervals are called advertising events. Scanners on the other hand only receive packets from the advertisement channel. In the prototype application created for this thesis, the Bluetooth beacons are advertisers and the mobile phones are scanners. Some of the latest phones in the market are now also able to act as both the scanner and the advertiser. Therefore, this application could already be done without the need of separate Bluetooth beacons. However, there are only a handful of devices that are capable of both roles, which results in the fact that this prototype application would be harder to test with a big group because the devices are still rare.
 
 \cite{bluetoothOverview} present findings that Bluetooth low energy doesn't consume a lot of power and delivers on its promises. On a low advertisement rate the devices are able to function for years before there is a need to change the batteries. However, with a high advertisement rate it is possible to drain the battery in months. The power consumption affects both the mobile application and the beacon used. Batteries for the beacons needs to be replaced once they run out. Some beacon providers, such as Estimote, do not actually allow you to replace the batteries but force you to buy new ones. This is one possible thing to take into account if a larger study is planned to do with Bluetooth beacons. The prototype application is implemented with battery consumption in mind so that the users are willing to use the application in the first place.
+\clearpage
 
 \section{Interviews}
 
@@ -111,7 +113,7 @@ When asked, if they were willing to use the application to meet strangers to do 
 One of the participants said that they would be willing to use it if they were single, not otherwise. One of them said that they wouldn't use the application themselves but understand if others would want to.
 
 Interviews of three people aren't enough to draw general conclusions about whether this kind of social interaction enhanced by an application is something people are looking for. However, this interview yield some good directions for the application on what makes people anxious and how far boundaries can be pushed while maintaining an overall safe feeling for the application.
-
+\clearpage
 \section{Design}
 
 The prototype application's main goal is to allow people to connect with familiar strangers and to find like-minded people to do sports with. Of course the underlying concepts can be used for other purposes than just sports, but this prototype is designed for sports. Especially part related to social interaction could be imported into a dating application for example. However, this thesis doesn't cover any other use cases for this prototype application.
@@ -168,7 +170,7 @@ The interaction can stay anonymous (with temporary names) as long as the users w
 \subsection{Revealing identity}
 
 At some point, the users must reveal some real life information in order to meet in person and to do sports with. This can be done only by messaging related information via the application. However, the application also introduces a feature, that the users can use to reveal real life information to one another. The real life information should be revealed only after both parties feel entirely comfortable with the idea. In the prototype, a mutual agreement of revealing real life information is required in order for it to happen. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Their profiles in the application will now be visible with their real names. A record of their communication is left on the app, and it will not log any encounters from the other person anymore at this point. Until real life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user chooses to remove them manually.
-
+\clearpage
 \section{Prototype implementation}
 
 The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	eveloping Android applications. Null safety by default, drastically less boilerplate code compared to a traditional Java application for Android and great development tools where the key elements for the success of using Kotlin. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
@@ -194,7 +196,7 @@ Push notifications are not at the moment handled by a real-time push notificatio
 \subsection{Using the prototype}
 
 The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do.
-
+\clearpage
 \section{Discussion}
 
 This section analyses the results that the study produced and what should be done in the future related to the created prototype application and about researching the social interactions of familiar strangers.
