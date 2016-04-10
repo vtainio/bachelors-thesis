@@ -20,6 +20,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
+import android.text.InputType
 import android.widget.Toast
 import com.firebase.client.Firebase
 import org.jetbrains.anko.*
@@ -34,14 +35,39 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         verticalLayout {
-            val information = textView()
-            val fullNameLabel = textView(getString(R.string.label_full_name))
+            padding = dip(20)
+            textView(getString(R.string.label_full_name))
             val fullName = editText()
-            val interestsLabel = textView(getString(R.string.label_interests))
+            textView(getString(R.string.label_sex)) {
+                topPadding = dip(10)
+            }
+            val sex = radioGroup({
+                radioButton({
+                    text = getString(R.string.label_male)
+                })
+                radioButton({
+                    text = getString(R.string.label_female)
+                })
+            })
+            textView(getString(R.string.label_age)) {
+                topPadding = dip(10)
+            }
+            val age = editText {
+                inputType = InputType.TYPE_CLASS_NUMBER
+            }
+            textView(getString(R.string.label_interests)) {
+                topPadding = dip(10)
+            }
             val interests = editText()
             button(getString(R.string.label_save)) {
+                topPadding = dip(10)
                 onClick {
-                    saveInformation(fullName.text.toString(), interests.text.toString())
+                    val selectedSex = if (sex.checkedRadioButtonId == 1) "male" else "female"
+                    saveInformation(fullName.text.toString(),
+                            interests.text.toString(),
+                            age.text.toString(),
+                            selectedSex
+                            )
                 }
             }
         }
@@ -73,7 +99,7 @@ class OnBoardingActivity : AppCompatActivity() {
     /**
      * Name is a required field for the application.
      */
-    fun saveInformation(fullName: String, interests: String) {
+    fun saveInformation(fullName: String, interests: String, age: String, sex: String) {
         if (fullName.length == 0) {
             Toast.makeText(this, getString(R.string.error_empty_full_name), Toast.LENGTH_LONG)
             return
@@ -83,15 +109,17 @@ class OnBoardingActivity : AppCompatActivity() {
             .edit()
             .putString(getString(R.string.settings_full_name), fullName)
             .putString(getString(R.string.settings_interests), interests)
+            .putString(getString(R.string.settings_age), age)
+            .putString(getString(R.string.settings_sex), sex)
             .apply()
 
-        sendInformationToFirebase(fullName, interests)
+        sendInformationToFirebase(fullName, interests, age, sex)
     }
 
     /**
      * Create a user profile to Firebase and store information there.
      */
-    fun sendInformationToFirebase(fullName: String, interests: String) {
+    fun sendInformationToFirebase(fullName: String, interests: String, age: String, sex: String) {
         val userId = PreferenceManager.getDefaultSharedPreferences(this)
                         .getString(getString(R.string.settings_uid), "")
 
@@ -104,6 +132,8 @@ class OnBoardingActivity : AppCompatActivity() {
         val userRef = firebase.child(getString(R.string.firebase_users)).child(userId)
         userRef.child(getString(R.string.firebase_users_fullname)).setValue(fullName)
         userRef.child(getString(R.string.firebase_users_interests)).setValue(interests)
+        userRef.child(getString(R.string.firebase_users_age)).setValue(age)
+        userRef.child(getString(R.string.firebase_users_sex)).setValue(sex)
 
         moveToBeaconRegistering()
     }

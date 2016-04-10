@@ -44,15 +44,15 @@ class RegisterActivity : AppCompatActivity() {
          * Define layout for the activity.
          */
         verticalLayout {
-            val emailLabel = textView(getString(R.string.label_email))
+            textView(getString(R.string.label_email))
             val email = editText {
                 inputType = TYPE_TEXT_VARIATION_EMAIL_ADDRESS
             }
-            val passwordLabel = textView(getString(R.string.label_password))
+            textView(getString(R.string.label_password))
             val password = editText {
                 inputType = TYPE_CLASS_TEXT or TYPE_TEXT_VARIATION_PASSWORD
             }
-            val validationLabel = textView(getString(R.string.label_password_validation))
+            textView(getString(R.string.label_password_validation))
             val passwordValidate = editText {
                 inputType = TYPE_CLASS_TEXT or TYPE_TEXT_VARIATION_PASSWORD
             }

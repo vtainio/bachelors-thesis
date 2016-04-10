@@ -10,6 +10,8 @@
     <string name="settings_email">settingsEmail</string>
     <string name="settings_beacon_registerd">beaconRegistered</string>
     <string name="settings_beacon_mac">beaconMacAddress</string>
+    <string name="settings_sex">settingsSex</string>
+    <string name="settings_age">settingsAge</string>
 
     <string name="error_user_does_not_exits">User does not exist.</string>
     <string name="error_invalid_password">Invalid password</string>
@@ -24,13 +26,19 @@
     <string name="label_register">Sign up</string>
     <string name="label_full_name">Full name (this will only be showed to people you select)</string>
     <string name="label_information">Now we need a few more details about you.</string>
-    <string name="label_interests">Your interests (this will be public information)</string>
+    <string name="label_interests">Your interests</string>
     <string name="label_save">Save</string>
     <string name="label_select_beacon">Select your beacon</string>
+    <string name="label_sex">Sex</string>
+    <string name="label_age">Age</string>
+    <string name="label_male">Male</string>
+    <string name="label_female">Female</string>
 
     <string name="firebase_users">users</string>
     <string name="firebase_users_fullname">name</string>
     <string name="firebase_users_interests">interests</string>
+    <string name="firebase_users_sex">sex</string>
+    <string name="firebase_users_age">age</string>
     <string name="firebase_beacons">beacons</string>
     <string name="firebase_beacons_user">user</string>
     <string name="firebase_beacons_name">name</string>
