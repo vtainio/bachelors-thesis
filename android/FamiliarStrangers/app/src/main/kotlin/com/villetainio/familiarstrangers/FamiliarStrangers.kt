@@ -17,6 +17,10 @@
 package com.villetainio.familiarstrangers
 
 import android.app.Application
+import android.location.LocationManager
+import android.location.LocationListener
+import android.location.Location
+import android.os.Bundle
 import android.preference.PreferenceManager
 import com.estimote.sdk.BeaconManager
 import com.estimote.sdk.Region
@@ -28,14 +32,18 @@ import com.firebase.client.DataSnapshot
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
 import com.villetainio.familiarstrangers.util.Constants
+import java.util.*
 
 class FamiliarStrangers : Application() {
     val TAG = "BeaconService"
+    var locationManager : LocationManager? = null
 
     override fun onCreate() {
         super.onCreate()
         Firebase.setAndroidContext(this)
         val firebase = Firebase(Constants.SERVER_URL)
+
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
 
         val beaconManager = BeaconManager(applicationContext)
 
@@ -108,7 +116,7 @@ class FamiliarStrangers : Application() {
                                     .setValue(amount + 1)
                         } else {
                             encounterRef.child(getString(R.string.firebase_users_encounters_amount))
-                                .setValue(1)
+                                    .setValue(1)
                         }
                     }
 
@@ -116,9 +124,44 @@ class FamiliarStrangers : Application() {
                         showError(error.message)
                     }
                 })
+
+        // Store real life location of the encounter if GPS is turned on.
+        val location = locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+
+        // Check that the location value is recent.
+        if (location != null && location.time > Calendar.getInstance().timeInMillis - 60 * 1000) {
+            Log.d("EncounterLocation", String.format("lon: %.2f lat: %.2f", location.longitude, location.latitude))
+
+            // Store the location to Firebase.
+            val newLocationRef = encounterRef.child("locations").push()
+            newLocationRef.child("longitude").setValue(location.longitude)
+            newLocationRef.child("latitude").setValue(location.latitude)
+        } else {
+            locationManager?.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0.toFloat(), EncounterLocationListener(encounterRef, locationManager!!))
+        }
     }
 
     fun showError(error: String, length: Int = Toast.LENGTH_LONG) {
         Toast.makeText(applicationContext, error, length)
+    }
+
+    class EncounterLocationListener(encounterRef: Firebase, locationManager: LocationManager) : LocationListener {
+        val mEncounterRef = encounterRef
+        val mLocationManager = locationManager
+
+        override fun onLocationChanged(location: Location) {
+            Log.d("EncounterLocationListener", String.format("lon: %.2f lat: %.2f", location.longitude, location.latitude))
+
+            // Store the encounter to Firebase.
+            val newLocationRef = mEncounterRef.child("locations").push()
+            newLocationRef.child("longitude").setValue(location.longitude)
+            newLocationRef.child("latitude").setValue(location.latitude)
+
+            mLocationManager.removeUpdates(this)
+        }
+
+        override fun onProviderDisabled(provider: String) {}
+        override fun onProviderEnabled(provider: String) {}
+        override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
     }
 }
