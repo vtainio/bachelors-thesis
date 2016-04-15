@@ -52,7 +52,7 @@ class NameGenerator  {
 
         var line = reader.readLine()
         while (line != null) {
-            namesList.add(line)
+            namesList.add(line.substring(0, 1) + line.substring(1).toLowerCase())
             line = reader.readLine()
         }
 
