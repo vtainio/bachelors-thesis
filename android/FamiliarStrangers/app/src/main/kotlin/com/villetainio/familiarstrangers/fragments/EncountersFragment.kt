@@ -58,11 +58,11 @@ class EncountersFragment : Fragment() {
 
                 for (encounter: DataSnapshot in snapshot.children) {
                     if (encounter.exists() &&
-                            encounter.child(getString(R.string.firebase_users_encounters_name)).exists() &&
+                            encounter.child(getString(R.string.firebase_users_encounters_fakename)).exists() &&
                             encounter.child(getString(R.string.firebase_users_encounters_amount)).exists()) {
                         encountersList.add(
                                 Encounter(
-                                        encounter.child(getString(R.string.firebase_users_encounters_name)).value as String,
+                                        encounter.child(getString(R.string.firebase_users_encounters_fakename)).value as String,
                                         encounter.child(getString(R.string.firebase_users_encounters_amount)).value as Long,
                                         encounter.key
                                 )

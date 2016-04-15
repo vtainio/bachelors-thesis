@@ -32,19 +32,19 @@ class NameGenerator  {
         return ""
     }
 
-    fun generateMaleName(assetManager: AssetManager) : String {
+    private fun generateMaleName(assetManager: AssetManager) : String {
         val names = readLinesFromFile("male.txt", assetManager)
         val index = Random().nextInt(names.size)
         return names.get(index)
     }
 
-    fun generateFemaleName(assetManager: AssetManager) : String {
+    private fun generateFemaleName(assetManager: AssetManager) : String {
         val names = readLinesFromFile("female.txt", assetManager)
         val index = Random().nextInt(names.size)
         return names.get(index)
     }
 
-    fun readLinesFromFile(filename: String, assetManager: AssetManager) : ArrayList<String> {
+    private fun readLinesFromFile(filename: String, assetManager: AssetManager) : ArrayList<String> {
         val namesList = ArrayList<String>()
 
         val inputStream = assetManager.open(filename)
