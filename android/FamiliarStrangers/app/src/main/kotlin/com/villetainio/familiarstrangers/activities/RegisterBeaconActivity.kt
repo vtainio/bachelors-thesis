@@ -90,10 +90,12 @@ class RegisterBeaconActivity : AppCompatActivity() {
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val userId = preferences.getString(getString(R.string.settings_uid), "")
         val name = preferences.getString(getString(R.string.settings_full_name), "")
+        val sex = preferences.getString(getString(R.string.settings_sex), "")
 
         val beaconRef = firebase.child(getString(R.string.firebase_beacons)).child(macAddress)
         beaconRef.child(getString(R.string.firebase_beacons_user)).setValue(userId)
         beaconRef.child(getString(R.string.firebase_beacons_name)).setValue(name)
+        beaconRef.child(getString(R.string.firebase_beacons_sex)).setValue(sex)
         finishBeaconRegister()
     }
 

@@ -21,6 +21,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -75,15 +76,14 @@ class ProfileFragment : Fragment() {
         val userRef = firebase.child(getString(R.string.firebase_users))
             .child(userId)
 
+        // Fetch information from the strangers profile.
         userRef.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    val name = view?.findViewById(R.id.profileName) as TextView
                     val interests = view?.findViewById(R.id.profileInterests) as TextView
                     val age = view?.findViewById(R.id.profileAge) as TextView
                     val sex = view?.findViewById(R.id.profileSex) as TextView
 
-                    name.text = snapshot.child(getString(R.string.firebase_users_fullname)).value as String
                     interests.text = snapshot.child(getString(R.string.firebase_users_interests)).value as String
                     age.text = snapshot.child(getString(R.string.firebase_users_age)).value as String
                     sex.text = snapshot.child(getString(R.string.firebase_users_sex)).value as String
@@ -94,6 +94,28 @@ class ProfileFragment : Fragment() {
 
             override fun onCancelled(error: FirebaseError) {
                 handleServerError(error)
+            }
+        })
+
+        // Retrieve the fake name stored in the users ecnounter reference.
+        val ownId = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(getString(R.string.settings_uid), "")
+        val encounterRef = firebase.child(getString(R.string.firebase_users))
+            .child(ownId)
+            .child(getString(R.string.firebase_users_encounters))
+            .child(userId)
+
+        encounterRef.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    // Use the fake name because the user hasn't give a right to view the real name.
+                    val name = view?.findViewById(R.id.profileName) as TextView
+                    name.text = snapshot.child(getString(R.string.firebase_users_encounters_fakename)).value as String
+                }
+            }
+
+            override fun onCancelled(error: FirebaseError) {
+                // Do nothing.
             }
         })
     }

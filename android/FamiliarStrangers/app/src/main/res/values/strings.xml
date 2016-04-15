@@ -42,9 +42,11 @@
     <string name="firebase_beacons">beacons</string>
     <string name="firebase_beacons_user">user</string>
     <string name="firebase_beacons_name">name</string>
+    <string name="firebase_beacons_sex">sex</string>
     <string name="firebase_users_encounters">encounters</string>
     <string name="firebase_users_encounters_amount">amount</string>
     <string name="firebase_users_encounters_name">name</string>
+    <string name="firebase_users_encounters_fakename">fakename</string>
     <string name="firebase_users_encounters_locations">locations</string>
     <string name="firebase_users_encounters_location_longitude">longitude</string>
     <string name="firebase_users_encounters_location_latitude">latitude</string>

@@ -32,6 +32,7 @@ import com.firebase.client.DataSnapshot
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
 import com.villetainio.familiarstrangers.util.Constants
+import com.villetainio.familiarstrangers.util.NameGenerator
 import java.util.*
 
 class FamiliarStrangers : Application() {
@@ -88,7 +89,8 @@ class FamiliarStrangers : Application() {
                 if (snapshot.exists()) {
                     val strangerId = snapshot.child("user").value as String
                     val strangerName = snapshot.child("name").value as String
-                    storeEncounterToUsersProfile(firebase, strangerId, strangerName)
+                    val strangerSex = snapshot.child("sex").value as String
+                    storeEncounterToUsersProfile(firebase, strangerId, strangerName, strangerSex)
                 }
             }
 
@@ -98,13 +100,14 @@ class FamiliarStrangers : Application() {
         })
     }
 
-    fun storeEncounterToUsersProfile(firebase: Firebase, id: String, name: String) {
+    fun storeEncounterToUsersProfile(firebase: Firebase, id: String, name: String, gender: String) {
         val userId = PreferenceManager.getDefaultSharedPreferences(this)
                 .getString(getString(R.string.settings_uid), "")
         val encounterRef = firebase.child(getString(R.string.firebase_users))
                 .child(userId)
                 .child(getString(R.string.firebase_users_encounters))
                 .child(id)
+        val fakename = NameGenerator().generateName(gender, applicationContext.assets)
 
         encounterRef.child(getString(R.string.firebase_users_encounters_name)).setValue(name)
         encounterRef.child(getString(R.string.firebase_users_encounters_amount))
@@ -117,6 +120,8 @@ class FamiliarStrangers : Application() {
                         } else {
                             encounterRef.child(getString(R.string.firebase_users_encounters_amount))
                                     .setValue(1)
+                            // Set a new fake name only for the first time.
+                            encounterRef.child(getString(R.string.firebase_users_encounters_fakename)).setValue(fakename)
                         }
                     }
 
