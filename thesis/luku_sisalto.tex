@@ -177,6 +177,8 @@ The created prototype is an Android\footnote{\url{https://www.android.com/}} app
 
 \subsection{Architecture}
 
+% TODO Remove external chat service from the graph.
+
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{fs_architecture.png}
@@ -185,13 +187,13 @@ The created prototype is an Android\footnote{\url{https://www.android.com/}} app
 	\end{center}
 \end{figure}
 
-The main parts of the prototype application are the client (the Android application) and the backend (server) as demonstrated in Figure \ref{fig:fs_architecture}. The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. In addition to Firebase, the application uses an external chat service for the messaging feature.
+The main parts of the prototype application are the client (the Android application) and the backend (server) as demonstrated in Figure \ref{fig:fs_architecture}. The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. The messaging feature was also implemented using Firebase.
 
 The application uses Firebase's default authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
 
 The application uses a background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones as described by \citep{bluetoothOverview}.
 
-Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future. The external chat service has push notifications enabled, but this is a different system to the applications own backend. Therefore, push notifications work for the messaging feature but nothing else.
+Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
 
 \subsection{Using the prototype}
 
