@@ -16,6 +16,7 @@
 
 package com.villetainio.familiarstrangers.fragments
 
+import android.content.Intent
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,7 +29,9 @@ import com.firebase.client.Firebase
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
 import com.villetainio.familiarstrangers.R
+import com.villetainio.familiarstrangers.activities.ChatActivity
 import com.villetainio.familiarstrangers.util.Constants
+import org.jetbrains.anko.onClick
 
 class ProfileFragment : Fragment() {
     val firebase = Firebase(Constants.SERVER_URL)
@@ -53,6 +56,8 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?) : View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val startChatButton = view.findViewById(R.id.startChat)
+        startChatButton.onClick { startChat() }
 
         return view
     }
@@ -91,6 +96,15 @@ class ProfileFragment : Fragment() {
                 handleServerError(error)
             }
         })
+    }
+
+    /**
+     * Initialize chat between users.
+     */
+    fun startChat() {
+        val chatIntent = Intent(activity, ChatActivity::class.java)
+        chatIntent.putExtra("strangerId", arguments.get("userId") as String)
+        startActivity(chatIntent)
     }
 
     fun handleServerError(error: FirebaseError? = null) {

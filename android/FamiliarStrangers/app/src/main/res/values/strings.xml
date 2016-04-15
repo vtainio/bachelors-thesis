@@ -48,6 +48,7 @@
     <string name="firebase_users_encounters_locations">locations</string>
     <string name="firebase_users_encounters_location_longitude">longitude</string>
     <string name="firebase_users_encounters_location_latitude">latitude</string>
+    <string name="firebase_chat">chat</string>
 
     <string name="menu_logout">logout</string>
 
@@ -64,4 +65,7 @@
     <string name="activity_label_register">Register</string>
     <string name="activity_label_onboarding">Onboarding</string>
     <string name="activity_label_settings">Settings</string>
+
+    <string name="chat_label_send">Send</string>
+    <string name="send_message_label">Send message</string>
 </resources>
