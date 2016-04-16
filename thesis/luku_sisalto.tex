@@ -113,6 +113,11 @@ When asked, if they were willing to use the application to meet strangers to do 
 One of the participants said that they would be willing to use it if they were single, not otherwise. One of them said that they wouldn't use the application themselves but understand if others would want to.
 
 Interviews of three people aren't enough to draw general conclusions about whether this kind of social interaction enhanced by an application is something people are looking for. However, this interview yield some good directions for the application on what makes people anxious and how far boundaries can be pushed while maintaining an overall safe feeling for the application.
+
+\subsection{Summary}
+
+Overall the interviews provided valuable information for designing the prototype application. The application mostly relies on the general concepts found on the literature review part of this thesis but these results are used to guide the design of the details of the application. The interviews yielded three main results. Firstly, there was a mixed reception for this kind of an application. Secondly, privacy was a concern, which lead to the design decision of hiding real names of the strangers initially. Lastly, when looking for people to do sports with using this application, users are interested in knowing what type of sports the other person is into, their gender and age. People want to do sports with similar people with similar fitness levels and these factors guide towards finding these similar people.
+
 \clearpage
 \section{Design}
 
@@ -197,7 +202,8 @@ Push notifications are not at the moment handled by a real-time push notificatio
 
 \subsection{Using the prototype}
 
-The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do.
+The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do. The source code can be found from GitHub\footnote{\url{https://github.com/Wisheri/bachelors-thesis}}.
+
 \clearpage
 \section{Discussion}
 
@@ -217,8 +223,19 @@ A larger study should be conducted to validate the behavior models and assumptio
 
 It might be best to conduct research with this application in a certain geographical area such as an university campus or a regular neighborhood. Then it is more likely that encounters will happen as real life proximity is required for them.
 
-Some additional functionality is planned for the application. The proposed features are listed in the GitHub page of the application. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome and will be merged to the prototype application.
+Some additional functionality is planned for the application. The proposed features are listed in the GitHub page of the application. Implementing push notifications for messaging other users would be especially nice, since now the user has to manually poll whether there are new messages in the application or not. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome and will be merged to the prototype application.
 
 No user testing has been done for this prototype application. However, as the application is licensed with an open source license, hopefully a study will see the light of day sometime in the near future.
+
+\clearpage
+\section{Conclusion}
+
+The goal of this thesis was to research how humans interact with familiar strangers and also create a prototype application for sports, which will use these findings and enable people to find like-minded strangers to get to know them and to do sports with. Based on the literature review and the interviews conducted for this thesis, a prototype Android application has been created and it is functional. It is now possible to do various types of user studies with the open source application.
+
+Based on multiple research from , people are generally interested in getting to know strangers using these kinds of social networking applications. By using this prototype application, people are able to get new friends to do sports with and therefore benefit from the research benefits of doing sports with another person.
+
+The interviews that were conducted for this thesis gave various good insights into the design of the prototype application. Although the amount of interviews was low, the results were valuable and useful both in the design and the implementation phase of the prototype application.
+
+The prototype application is easy to take into use. The backend service is also very easy to replace to the application so that it's easier to monitor the generated data. You can change the backend by merely changing a single line in the source code. The prototype was also open sourced with the idea that someone else can take the project forward and do user studies that are lacking in this thesis.
 
 % --------------------------------------------------------------------
