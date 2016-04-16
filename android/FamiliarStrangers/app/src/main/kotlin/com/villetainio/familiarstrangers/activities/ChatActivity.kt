@@ -21,14 +21,19 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Toast
 import com.firebase.client.*
 import com.villetainio.familiarstrangers.util.Constants
 import com.villetainio.familiarstrangers.R
+import com.villetainio.familiarstrangers.adapters.ChatAdapter
+import com.villetainio.familiarstrangers.models.ChatMessage
+import com.villetainio.familiarstrangers.models.ChatReference
 import org.jetbrains.anko.onClick
 
 class ChatActivity : AppCompatActivity() {
     val firebase = Firebase(Constants.SERVER_URL)
+    var mAdapter: ChatAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,10 @@ class ChatActivity : AppCompatActivity() {
                 .getString(getString(R.string.settings_uid), "")
         val strangerId = intent.extras.getString("strangerId")
 
+        val listView = findViewById(R.id.messagesList) as ListView
+        mAdapter = ChatAdapter(this, R.layout.item_chat_right)
+        listView.adapter = mAdapter
+        listView.divider = null
 
         val ownEncounterRef = firebase.child(getString(R.string.firebase_users))
             .child(userId)
@@ -91,42 +100,39 @@ class ChatActivity : AppCompatActivity() {
      * Handle the chat connection between Firebase and the application.
      */
     fun initializeChat(chatId: String) {
+        val userId = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(getString(R.string.settings_uid), "")
         val chatRef = firebase.child(getString(R.string.firebase_chat))
             .child(chatId)
 
-        // Read existing chat messages.
-        chatRef.addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                //TODO Implement.
-            }
-
-            override fun onCancelled(error: FirebaseError) {
-                handleServerError(error)
-            }
-        })
-
-        // Listen for new chat objects.
         chatRef.addChildEventListener(object: ChildEventListener {
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildKey: String) {
-                //TODO Add chat objects to view.
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildKey: String?) {
+                if (snapshot.exists() && snapshot.child("message").exists() && snapshot.child("user").exists()) {
+                    val message = snapshot.child("message").value as String
+                    val left = if (snapshot.child("user").value == userId) true else false
+                    mAdapter?.add(ChatMessage(message, left))
+                }
             }
 
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildKey: String) {}
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildKey: String?) {}
             override fun onChildRemoved(snapshot: DataSnapshot) {}
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildKye: String) {}
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildKey: String?) {}
 
             override fun onCancelled(error: FirebaseError) {
                 handleServerError(error)
             }
         })
+
 
         // Send a new message when clicking the send button.
         val sendMessage = findViewById(R.id.chatSend) as Button
         sendMessage.onClick { view -> run {
             val messageView = findViewById(R.id.chatMessage) as EditText
-            val message = messageView.text
+            val message = messageView.text.toString()
 
-            //TODO Send chat messages to Firebase.
+            val messageRef = chatRef.push()
+            messageRef.setValue(ChatReference(message, userId))
+            messageView.text.clear() // Clear the field when sending.
         }}
     }
 

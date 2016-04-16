@@ -21,8 +21,9 @@
 
         <EditText
             android:id="@+id/chatMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:inputType="text"
             android:layout_gravity="bottom" />
 
@@ -30,6 +31,7 @@
             android:id="@+id/chatSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:text="@string/chat_label_send" />
 
     </LinearLayout>

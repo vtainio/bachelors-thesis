@@ -43,6 +43,9 @@
         <activity android:name=".activities.EncounterActivity"
             android:label="Encounter" />
 
+        <activity android:name=".activities.ChatActivity"
+            android:label="Chat" />
+
     </application>
 
 </manifest>
