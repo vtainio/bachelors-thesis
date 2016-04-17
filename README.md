@@ -1,2 +1,2 @@
-My Bachelor's thesis. Work in progress.
+My Bachelor's thesis.
 
