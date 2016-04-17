@@ -48,6 +48,9 @@ dependencies {
 
     // Estimote SDK
     compile 'com.estimote:sdk:0.10.1@aar'
+
+    // Android Play Services for maps.
+    compile 'com.google.android.gms:play-services-maps:8.4.0'
 }
 buildscript {
     ext.kotlin_version = '1.0.0'

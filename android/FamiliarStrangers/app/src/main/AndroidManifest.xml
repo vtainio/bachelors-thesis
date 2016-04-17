@@ -46,6 +46,13 @@
         <activity android:name=".activities.ChatActivity"
             android:label="Chat" />
 
+        <activity android:name=".activities.MapActivity"
+            android:label="Map" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="INSERT YOUR GOOGLE MAPS KEY HERE" />
+
     </application>
 
 </manifest>

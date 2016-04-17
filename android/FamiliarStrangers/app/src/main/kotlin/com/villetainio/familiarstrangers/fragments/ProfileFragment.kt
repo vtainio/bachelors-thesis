@@ -32,7 +32,9 @@ import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
 import com.villetainio.familiarstrangers.R
 import com.villetainio.familiarstrangers.activities.ChatActivity
+import com.villetainio.familiarstrangers.activities.MapActivity
 import com.villetainio.familiarstrangers.util.Constants
+import org.jetbrains.anko.find
 import org.jetbrains.anko.onClick
 
 class ProfileFragment : Fragment() {
@@ -153,7 +155,12 @@ class ProfileFragment : Fragment() {
             requestButton.text = "Real name requested"
         } }
 
-        // Check the situation for revealing real life.
+        view?.findViewById(R.id.showMap)?.onClick { view -> run {
+            val mapIntent = Intent(activity, MapActivity::class.java)
+            mapIntent.putExtra("userId", ownId)
+            mapIntent.putExtra("strangerId", arguments.get("userId") as String)
+            startActivity(mapIntent)
+        } }
     }
 
     /**

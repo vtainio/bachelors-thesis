@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_fs)
 
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val name =  preferences.getString(getString(R.string.settings_full_name), "")
@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = findViewById(R.id.fs_toolbar) as Toolbar
         setSupportActionBar(toolbar)
-
 
         val headerResult = AccountHeaderBuilder()
                 .withActivity(this)
