@@ -15,7 +15,7 @@ This thesis consist of:
 
 This paper presents a prototype Android application that will log how many times strangers pass you by. When you encounter a strangers enough times, the application will suggest communication with the stranger. With the prototype, you can view where and how many times you have encountered that person and what are they interested in. Interesting questions related to this prototype application are, whether users are willing to establish communication based on similar interest and similar real-life habits (sports routes and times) and also how much information users are willing to share to total strangers. Data gathered from this prototype application can later be used to verify assumptions about the users behavior and to learn new information. The prototype application takes privacy seriously and is quite conservative about sharing information. The level of privacy can later then be modified based on feedback from the users.
 
-The application uses Bluetooth beacons to identify the strangers and log the encounters to a web server. This enables users to interact with the strangers also outside of the sports activity itself. They don't have to approach the strangers while doing sports. They can later on interact with people they have met while doing sports and try to find like-minded people to do sports with. 
+The application uses Bluetooth beacons to identify the strangers and log the encounters to a web server. This enables users to interact with the strangers also outside of the sports activity itself. They don't have to approach the strangers while doing sports. They can later on interact with the strangers they met while doing sports and try to find like-minded people to do sports with. 
 
 The interviews were composed from open-ended questions where the goal was more to find new information for the design of the prototype application rather than just to validate previous assumptions. The interviews were extensive and performed only for a handful of possible end users of the application. No survey's were conducted for this thesis.
 
@@ -74,29 +74,29 @@ This section describes the methods used for the interviews and the results gaine
 
 The interviews consisted of multiple open-ended questions. The goal was to find out whether people are interested in using this type of an mobile application and how to design the details of the application. The information gathered from these interviews was used for the design of the prototype application. The main outline for the interview is located in appendix \ref{sec:app1_1}.
 
-The questions weren't meant to be strict but to just serve as a guideline for the discussion. If new interesting topics emerged while interviewing, the idea was to go forward with them without thinking too much about the guideline.
+The questions weren't meant to be strict but to serve as a guideline for the discussion. If new interesting topics emerged while interviewing, the idea was to go forward with them without thinking too much about the guideline.
 
 \subsection{Results}
 
-In total, three people were interviewed for this thesis. The interviews ranged from 20 to 30 minutes in length. A few demographic questions were included in the interviews. Two of the participants were female and one was  a male. One of the participants did sports four to five times a week, one two to three times a week and one did sports rarely (less than weekly). Their sports activities were gym, various group exercises (e.g. spinning), martial arts and jogging.
+In total, three people were interviewed for this thesis. The interviews ranged from 20 to 30 minutes in length. A few demographic questions were included in the interviews. Two of the three participants were female and one was  a male. One of the participants did sports four to five times a week, one two to three times a week and one did sports rarely (less than weekly). Their sports activities were gym, various group exercises (e.g. spinning), martial arts and jogging.
 
-One of the participants was very goal oriented in their sports activities, others were doing spots just for getting a good feeling out of it. All of them carried devices for music during sports. Therefore, using the kind of a prototype application done for this thesis wouldn't require a change in their current behavior. Most of them did sports alone, sometimes together with friends. Friends that they did sports with, were mostly old friends from school. One of them got to know strangers that they frequently met at the gym and later on started working out together.
+One of the participants was very goal oriented in their sports activities, others were doing sports just for getting a good feeling out of it. All of them carried devices for music during sports. Therefore, using the kind of a prototype application done for this thesis wouldn't require a change in their current behavior other than carrying a Bluetooth beacon with them. Most of them did sports alone, sometimes together with friends. Friends that they did sports with, were mostly old friends from school. One of them got to know strangers that they frequently met at the gym and later on started working out together.
 
-Doing sports together with other people and alone had different effects to their motivation. One of the participants said that they didn't feel any difference in motivation when doing sports with or without friends. Others felt some differences.
+Doing sports together with other people had varying effects to their motivation than when doing sports alone. One of the participants said that they didn't feel any difference in motivation when doing sports with or without friends. Others felt some differences.
 
 \begin{quotation}
 \it I might have a good motivation with or without friends. In a group settings, others are supporting me, which might make me achieve higher goals than I thought was possible. However, it might also end up so that we are just chatting without actually getting anything done. If I am working by myself, I try to gain motivation with some external factors (e.g. music or watching inspiring videos).
 \end{quotation}
 
-Privacy was a concern among the participants related to this prototype application. The initial thought for one of them was that strangers would start to stalk them using this kind of an application. One other participant quickly dismissed the idea by saying that of course showing any personal information should be voluntary. Some concerns were also brought up about criminals, such as pedofiles using this application for criminal activities. The same participant dismissed this idea also by saying that the application has no role in that situation if the people are actually meeting each other in real life all the time. However, initial reactions about privacy are important when designing an application that feels safe to use.
+Privacy was a concern among the participants related to this prototype application. The initial thought for one of them was that strangers would start to stalk them using this kind of an application. One other participant quickly dismissed the idea by saying that of course showing any personal information should be voluntary. Some concerns were also brought up about criminals, such as pedofiles using this application for criminal activities. The same participant dismissed this idea again by saying that the application has no role in that situation if the people are actually already meeting each other in real life all the time. However, initial reactions about privacy are important when designing an application that feels safe to use.
 
 When asked about what they would be willing to share to strangers, the answers differed. One of them felt quite easy about sharing plenty of information.
 
 \begin{quotation}
-\it I would maybe be willing to share some open text related to my interests, my profile picture, my sex, my first name and maybe my email address. If it were a dating service and I would be actively searching for a partner, I would be willing to share more information.
+\it I would maybe be willing to share some open text related to my interests, my profile picture, my gender, my first name and maybe my email address. If it were a dating service and I would be actively searching for a partner, I would be willing to share more information.
 \end{quotation}
 
-One of the participant felt anxious about sharing a profile picture. One felt that profile pictures weren't necessary if the search is for a person to do sports with. Overall, they felt that the most important aspect would be to share an open field where one could describe what they are interested in and perhaps write about the kinds of people they are looking to do sports with. In addition, they felt that being optionally able to select a sex for the familiar strangers would be a good thing. They felt that most people would probably want to select a gender for people to interact and to do sports with.
+One of the participant felt anxious about sharing a profile picture. One felt that profile pictures weren't necessary if the search is for a person to do sports with. Overall, they felt that the most important aspect would be to share an open field where one could describe what they are interested in and perhaps write about the kinds of people they are looking to do sports with. In addition, they felt that being optionally able to select a gender for the familiar strangers would be a good thing. They felt that most people would probably want to select a gender for people to interact and to do sports with.
 
 \begin{quotation}
 \it If I am looking for someone to spot me at the gym, I don't want it to be someone who weights 20kg or if a woman is searching for a yoga partner, they might feel more comfortable if the partner is female as well.
@@ -110,22 +110,20 @@ When asked, if they were willing to use the application to meet strangers to do 
 
 One of the participants said that they would be willing to use it if they were single, not otherwise. One of them said that they wouldn't use the application themselves but understand if others would want to.
 
-Interviews of three people aren't enough to draw general conclusions about whether this kind of social interaction enhanced by an application is something people are looking for. However, this interview yield some good directions for the application on what makes people anxious and how far boundaries can be pushed while maintaining an overall safe feeling for the application.
-
 \subsection{Summary}
 
-Overall the interviews provided valuable information for designing the prototype application. The application mostly relies on the general concepts found on the literature review part of this thesis but these results are used to guide the design of the details of the application. The interviews yielded three main results. Firstly, there was a mixed reception for this kind of an application. Secondly, privacy was a concern, which lead to the design decision of hiding real names of the strangers initially. Lastly, when looking for people to do sports with using this application, users are interested in knowing what type of sports the other person is into, their gender and age. People want to do sports with similar people with similar fitness levels and these factors guide towards finding these similar people.
+Overall the interviews provided valuable information for designing the prototype application. The application mostly relies on the general concepts found on the literature review part of this thesis but these results were used for guiding the design of the details of the application. The interviews yielded three main results. Firstly, there was a mixed reception for this kind of an application. Secondly, privacy was a concern, which lead to the design decision of hiding real names of the strangers initially. Lastly, when looking for people to do sports with using this application, users are interested in knowing what type of sports the other person is into, their gender and age. People want to do sports with similar people with similar fitness levels and these factors guide towards finding these similar people. Interviews of three people aren't enough to draw general conclusions about whether this kind of social interaction enhanced by an application is something people are looking for. However, this was never the purpose of the interviews and their intended result of getting perspective for the design process was met.
 
 \clearpage
 \section{Design}
 
-The prototype application's main goal is to allow people to connect with familiar strangers and to find like-minded people to do sports with. Of course the underlying concepts can be used for other purposes than just sports, but this prototype is designed for sports. Especially part related to social interaction could be imported into a dating application for example. However, this thesis doesn't cover any other use cases for this prototype application.
+The prototype application's main goal is to allow people to connect with familiar strangers and to find like-minded people to do sports with. Of course the underlying concepts can be used for other purposes than just sports, but this prototype is designed for sports. Especially the part related to social interaction could be imported into a dating application for example. However, this thesis doesn't cover any other use cases for this prototype application.
 
 The designed process of meeting a familiar strangers and connecting with them can be divided into a few steps.
 
 \begin{itemize}
-	\item Pass by the person enough times
-	\item View information about the person and their interests when the application suggests communication.
+	\item Encounter a person enough times
+	\item View information about that person and their interests when the application suggests communication.
 	\item Message the stranger and see if they share common goals.
 	\item View their real-life information after both agree to do it and start doing sports with them.
 \end{itemize}
@@ -136,19 +134,28 @@ This prototype application is a mix of remote and local social interaction among
 
 \begin{figure}[htb]
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{fs_onboarding.png}
+		\includegraphics[width=0.4\textwidth]{onboarding2.png}
 		\caption{Filling personal information.}
 		\label{fig:fs_onboarding}
 	\end{center}
 \end{figure}
 
-When starting the application for the first time an onboarding process will begin for the user. The user is required to register for the application. They can also just log in with an existing account so using the application isn't tied to a single device. After that the user is required to fill their profile information as seen in Figure \ref{fig:fs_onboarding}. The fields required for this are their name and public interests. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list. Beacon's MAC address is used to identify unique beacons and it is stored to the server. Therefore, every beacon is tied to an identifiable user. This completes the onboarding process and the user is now free to use the application.
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{registering_beacons.png}
+		\caption{Selecting an unique beacon for the user.}
+		\label{fig:fs_registerbeacons}
+	\end{center}
+\end{figure}
+
+
+When starting the application for the first time an onboarding process will begin for the user. The user is required to register for the application with a simple email and password combination. They can also just log in with an existing account so using the application isn't tied to a single device. After registering, the user is required to fill their profile information as seen in figure \ref{fig:fs_onboarding}. The fields required onboarding are their name,  interests, gender and age. After completing this stage of the onboarding the user is required to register a beacon for their use. At this point the application will detect every beacon nearby and show them in a list as seen in figure figure \ref{fig:fs_registerbeacons}. The list shows the beacon's MAC address on the left the the distance to that beacon in meters on the right. Beacon's MAC address is used to identify unique beacons and it is stored to the server. Therefore, every beacon can be tied only to a single identifiable user. This completes the onboarding process and the application will now work on its own.
 
 \subsection{Passing by}
 
-Using Bluetooth beacons, the application will log every person that passes by. Only one of the users have to have their mobile phone with them, since all the encounters are stored in the server. Therefore, only carrying a Bluetooth beacon might end up resulting in encounters inside the application but it is not guaranteed. In the case where both users only have a beacon with them, no encounters will be stored. The amount of pass by's that initialize communication between the users is adjustable in the prototype for better examining of how much is required for social interaction later on. The initial default value is three times. This can easily be adjusted from the server later so no additional application releases need to be made. The amount could also in the future be adjusted based on how frequent the use of the application is in the area. With low use, it is harder to encounter anyone and likely will lead to not using the application as often. If a larger study is done later to validate the users behaviors, the amount should be increased to engage people more during the research process.
+Using Bluetooth beacons, the application will log every person that passes you by. Therefore users are required to carry a mobile phone and a Bluetooth beacon with them while doing sports. The amount of pass by's that initialize communication between the users is adjustable in the prototype for better examining of how much is required for social interaction later on. The initial default value is three times. The amount could also in the future be adjusted based on how frequent the use of this application is in the real life location of the user. With low use, it is harder to encounter anyone and likely will lead to not using the application as often. If a larger study is done later to validate the users behaviors, the amount should be decreased to engage people more during the research process.
 
-One option is also to modify the application so that the users are able to select the amount themselves before other users are able to approach them with messages. The option of filtering the strangers with some parameters, such as sex was brought up in the interviews. The conducted interview also suggested that users would be interested to see the public interests of strangers even with low encounters in order to find a like-minded stranger more easily.
+One option is also to modify the application so that users are able to select the amount themselves before other users are able to approach them with messages. The option of filtering the strangers with some parameters, such as sex was brought up in the interviews. The conducted interview also suggested that users would be interested to see the public interests of strangers even with low encounters in order to find a like-minded stranger more easily.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -158,22 +165,29 @@ One option is also to modify the application so that the users are able to selec
 	\end{center}
 \end{figure}
 
-In the application, users are able to view how many people they have come encountered from a list in the application as seen in Figure \ref{fig:encounters}. The list shows the user with an unique identification (not their real name) and also the times they have come across each other. These users have encountered the threshold of encounters. Strangers with less encounters than required will not be visible in any way to the user before reaching the target.
-
-The logging can be turned on and off whenever the user feels like it. This is a requirement from the mobile application providers and also a feature requested in the conducted interviews. The reason could be that the user is in a place where they do not want to encounter anyone or have a record of the location stored in the application or if they want to save battery by closing every Bluetooth connection.
+In the application, users are able to view how many people they have encountered from a list in the application as seen in figure \ref{fig:encounters}. The list shows the user with an unique identification (not their real name) and also the times they have encountered each other. These users have encountered over the threshold amount of encounters in order to be visible on the list. Strangers with less encounters than required will not be visible in any way to the user before reaching the target amount.
 
 \subsection{Approaching the stranger}
 
-After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. The user will be able to send messages and view their public interests that they have filled during the onboarding process. In addition to the filled information, the user is able to see the locations of encounters on a map, to make sense of where the other person is doing sports and what sports based on the users own behavior. 
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{chat.png}
+		\caption{An example of sending a message to a stranger.}
+		\label{fig:fs_chat}
+	\end{center}
+\end{figure}
 
-Based on the  research from \cite{socialAdHoc} and the interviews conducted for this thesis, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users as users are open about reaching out to strangers.
+After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. By clicking a stranger from the list seen in \ref{fig:encounters}, the user is able to view their public information (gender, age and interests) and send messages or request real life information from them. This information is entered by the user in the onboarding process. In addition to the filled information, the user is able to see the locations of encounters on a map, to make sense of where the other person is doing sports and what sports based on the users own behavior.
 
-The interaction can stay anonymous (with temporary names) as long as the users want to. The anonymity was selected based on the privacy concerns of the conducted interview. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be interested in doing sports together. The chat is meant for users to verify similar interests and goals before getting to know each other better. If the interests and goals do not match, the user can ignore the other person and they will not be in any kind of interaction via the application ever again.
+Based on the  research from \cite{socialAdHoc} and the interviews conducted for this thesis, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users as users are open about reaching out to strangers and privacy wasn't a concern for the users in the research paper.
+
+The interaction can stay anonymous with temporary generated names as long as the users want to. The anonymous approach was selected based on the privacy concerns of the conducted interviews. It's possible to send messages to each other just to ask what they are interested in and see if both of them would be interested in doing sports together. The chat as seen in figure \ref{fig:fs_chat} is meant for users to verify similar interests and goals before getting to know each other better. If the interests and goals do not match, the user can ignore the other person and they will not be in any kind of interaction via the application ever again.
 
 \subsection{Revealing identity}
 
-At some point, the users must reveal some real life information in order to meet in person and to do sports with. This can be done only by messaging related information via the application. However, the application also introduces a feature, that the users can use to reveal real life information to one another. The real life information should be revealed only after both parties feel entirely comfortable with the idea. In the prototype, a mutual agreement of revealing real life information is required in order for it to happen. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Their profiles in the application will now be visible with their real names. A record of their communication is left on the app, and it will not log any encounters from the other person anymore at this point. Until real life information is accepted, the application will still log encounters from the person and view them in the list of encounters unless the user chooses to remove them manually.
+At some point, the users must reveal some real life information in order to meet in person and to do sports with. This can be done only by messaging related information via the application. However, the application also introduces a feature, that the users can use to reveal real life information to one another. The real life information should be revealed only after both parties feel entirely comfortable with the idea. In the prototype, a mutual agreement of revealing real life information is required in order for it to happen. After revealing information, it is possible for both of them to start doing sports together or find other meaningful things to do in life. Their profiles in the application will now be visible with their real names. A record of their interaction is left on the app, and the stranger's real name is now also shown to the user.
 \clearpage
+
 \section{Prototype implementation}
 
 The created prototype is an Android\footnote{\url{https://www.android.com/}} application. The programming language selected for the application is Kotlin\footnote{\url{https://kotlinlang.org/}}. Kotlin helped to reduce the amount of bugs during the creation process and proved to be a very fast programming language for d	eveloping Android applications. Null safety by default, drastically less boilerplate code compared to a traditional Java application for Android and great development tools where the key elements for the success of using Kotlin. In addition to Kotlin, Anko\footnote{\url{https://github.com/Kotlin/anko}}; a view library created by JetBrains\footnote{\url{https://www.jetbrains.com/}}; was also used for the application. Using Anko reduced the amount of time going to creating basic views, e.g. for the login and registering views.
@@ -190,50 +204,46 @@ The created prototype is an Android\footnote{\url{https://www.android.com/}} app
 	\end{center}
 \end{figure}
 
-The main parts of the prototype application are the client (the Android application) and the backend (server) as demonstrated in Figure \ref{fig:fs_architecture}. The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique users ID's that aren't locked into a single device in the application's lifetime. The messaging feature was also implemented using Firebase.
+The main parts of the prototype application are the client (the Android application) and the backend (server) as demonstrated in figure \ref{fig:fs_architecture}. The backend is built with Firebase\footnote{\url{https://www.firebase.com/}}, which is a tool for creating fast backends using nothing but JSON\footnote{Javascript Object Notation} objects. The user authenticates to the backend, so that we get unique user identifiers that aren't locked into a single device in the application's lifetime. The messaging feature was also implemented using Firebase using its real time features done with the websocket protocol \citep{rfc6455}.
 
 The application uses Firebase's default authentication features for the authentication. A combination of email and password is currently used. However, it is easy to add third party login systems, such as Facebook\footnote{\url{https://www.facebook.com/}} and Google\footnote{\url{https://www.google.com}} for the authentication.
 
-The application uses a background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Monitoring the events for Bluetooth beacons drains extra battery from the phones as described by \citep{bluetoothOverview}.
+The application uses an Android background service to run the logging of encounters among the users in a separate thread. The background service detects the join and exit events of Bluetooth beacons and based on those events, sends the server information about the encounters. This background service will stay running even though the user is not currently actively using the application. Therefore, even if the user is keeping the application locked in their pocket, it will still log the encounters normally. Monitoring the events for Bluetooth beacons drains extra battery from the phones as described by \cite{bluetoothOverview}.
 
-Push notifications are not at the moment handled by a real-time push notification server. The application polls the Firebase server periodically and sees if there are any changes available. This will hopefully be improved in the future.
+The application doesn't have push notifications to handle real-time updates at the moment. This will hopefully be improved in the future.
 
-\subsection{Using the prototype}
+\subsection{Usage}
 
-The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. The data structure for the JSON objects used in Firebase is described in the appliation's source code, so developing a custom backend for the application is entirely possible and quite fast to do. The source code can be found from GitHub\footnote{\url{https://github.com/Wisheri/bachelors-thesis}}.
-
+The application is open sourced with the Apache 2.0 license\footnote{\url{http://www.apache.org/licenses/LICENSE-2.0}}. Therefore, anyone is free to take it into use, modify it or even make money out of it. A few steps are needed before the application can be taken into use by someone. First of all, the application uses Firebase as the backend service. Therefore, a Firebase account and an application created with it is required for using this application. You can replace the existing Firebase application with your own by just changing a single line in the "Constants" file. The source code can be found from GitHub\footnote{\url{https://github.com/Wisheri/bachelors-thesis}}.
 \clearpage
+
 \section{Discussion}
 
-This section analyses the results that the study produced and what should be done in the future related to the created prototype application and about researching the social interactions of familiar strangers.
+This section analyses the results that the study produced and what should be done in the future related to the created prototype application.
 
 \subsection{Results of the study}
 
-The literature review of the thesis showed that social sports applications have been showed to increase social interaction even in completely remote and virtual environments. In addition to social sports, it was shown that doing sports together with other people facilitates social interaction among the people. Therefore, the premise for the application  is well researched.
+The conducted interviews presented multiple interesting points of views. The results served their purpose in giving direction to the prototype application's design process. However, as the amount of interviews is so low, the results should not be taken as general views of people. The goal of the interviews was not to study the general opinion of such matters but to give guidance to the design process of the prototype application.
 
-The conducted interviews presented multiple interesting points of views. However, as the amount of interviews is so low, it is not possible to draw general conclusions about the behavior models of users. The results served their purpose in giving general direction to the prototype application's design process and therefore resulted in valuable information for this study.
-
-The prototype application is functional and it its possible to use it for further research. The application is also open source with a permissive license so it's easy to take it into use in any research facility or even commercial use.
+In the end, the prototype application is functional and it its possible to use it for further research. The application is also open source with a permissive license so it's easy to take it into use in any research facility or even commercial use. The design process included looking at the problem from multiple points of views generated by the previous study for this thesis.
 
 \subsection{Future work}
 
-A larger study should be conducted to validate the behavior models and assumptions that were generated by the conducted interviews. In addition to researching the behavior models of doing social interaction among familiar strangers, the prototype application should be used for more and larger research. Elements of this prototype application could also be introduced outside the concept of sports in order to research whether there are any differences in the behavior of these groups.
+In addition to researching the behavior models of doing social interaction among familiar strangers further, the prototype application created for this thesis should be used for research. Elements of this prototype application could also be introduced outside the concept of sports in order to research whether there are any differences in the behavior of these groups. It might be best to conduct research with this application in an urban area such as an university campus or a regular neighborhood. Then it is more likely that encounters will happen as real life proximity is required for them.
 
-It might be best to conduct research with this application in a certain geographical area such as an university campus or a regular neighborhood. Then it is more likely that encounters will happen as real life proximity is required for them.
-
-Some additional functionality is planned for the application. The proposed features are listed in the GitHub page of the application. Implementing push notifications for messaging other users would be especially nice, since now the user has to manually poll whether there are new messages in the application or not. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome and will be merged to the prototype application.
+Some additional functionality is planned for the application. The proposed features are listed in the GitHub issues of the application. Implementing push notifications for messaging other users would be especially nice, since now the user has to manually poll whether there are new messages in the application or not. At this point it is unclear whether those features will be implemented, but they are there for anyone to take. Modifications to the code and complete new features are by all means welcome and will be merged to the prototype application.
 
 No user testing has been done for this prototype application. However, as the application is licensed with an open source license, hopefully a study will see the light of day sometime in the near future.
-
 \clearpage
+
 \section{Conclusion}
 
-The goal of this thesis was to research how humans interact with familiar strangers and also create a prototype application for sports, which will use these findings and enable people to find like-minded strangers to get to know them and to do sports with. Based on the literature review and the interviews conducted for this thesis, a prototype Android application has been created and it is functional. It is now possible to do various types of user studies with the open source application.
+The goal of this thesis was to research how humans interact with familiar strangers and to also create a prototype application for sports, which will use these findings and enable people to find like-minded strangers to do sports with. Based on the literature review and the interviews conducted for this thesis, a prototype Android application has been created and it is functional. It is now possible to do various types of user studies with the open source application.
 
-Based on multiple research from , people are generally interested in getting to know strangers using these kinds of social networking applications. By using this prototype application, people are able to get new friends to do sports with and therefore benefit from the research benefits of doing sports with another person.
+Based on the literature review of this thesis, people are generally interested in getting to know strangers using these kinds of social networking applications. Technology has already encouraged people to do sports with like-minded people and hopefully this prototype application will encourage people more. By using this prototype application, people are able to get new friends to do sports with. Therefore, people were benefit from doing sports both physically and mentally as was shown in the literature review of this thesis.
 
-The interviews that were conducted for this thesis gave various good insights into the design of the prototype application. Although the amount of interviews was low, the results were valuable and useful both in the design and the implementation phase of the prototype application.
+The interviews that were conducted for this thesis gave various good insights into the design of the prototype application. Although the amount of interviews was low, the results were valuable and useful both in the design and the implementation phase of the prototype application. The tree main results from the interviews were that people have a mixed view of this type of applications, privacy is a concern and the interviews gave good viewpoints in what to include to the prototype application in terms of data gathered from the users.
 
-The prototype application is easy to take into use. The backend service is also very easy to replace to the application so that it's easier to monitor the generated data. You can change the backend by merely changing a single line in the source code. The prototype was also open sourced with the idea that someone else can take the project forward and do user studies that are lacking in this thesis.
+The prototype application is easy to take into use. The backend service used for the application is also very easy to replace so that it's easier to monitor the generated data. You can change the backend by merely changing a single line in the source code. The prototype was also open sourced with the idea in mind that someone else can take the project forward and do user studies which are lacking from this thesis.
 
 % --------------------------------------------------------------------
