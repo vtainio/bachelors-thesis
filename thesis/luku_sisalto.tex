@@ -52,7 +52,7 @@ This thesis focuses more on how to create and inspire social interaction rather 
 
 The prototype application uses Bluetooth beacons to log when the familiar strangers encounter each other. Bluetooth beacons have two popular protocols, which are iBeacon from Apple\footnote{\url{https://developer.apple.com/ibeacon/}} and Eddystone by Google\footnote{\url{https://www.google.com/about/company/}}. One popular commercial manufacturer of Bluetooth beacons is Estimote\footnote{\url{http://estimote.com/}}. Estimote beacons using the iBeacon procotol were used for this thesis. Beacons allow applications to perform activities when in close proximity to a beacon. Some current popular use cases for the beacons are, for example targeted advertising in an airport and implementing an indoor location system.
 
-The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. BLE is used for short-range communication. Typically the beacons are constantly broadcasting signals and are used to do something special when an user comes near them. BLE is designed to consume a lot less power than the traditional Bluetooth protocol and to be used with various kinds of monitoring services. BLE is expected to be used in billions of devices in the near future and to be a crucial part of the Internet of Things\citep{bluetoothOverview}.
+The beacons implement a protocol called Bluetooth low energy (BLE), which is a part of the Bluetooth 4.0 standard defined by \cite{bluetooth}. BLE is used for short-range communication. Typically the beacons are constantly broadcasting signals and are used to do something special when an user comes near them. BLE is designed to consume a lot less power than the traditional Bluetooth protocol and to be used with various kinds of monitoring services. BLE is expected to be used in billions of devices in the near future and to be a crucial part of the Internet of Things \citep{bluetoothOverview}.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -171,13 +171,21 @@ In the application, users are able to view how many people they have encountered
 
 \begin{figure}[htb]
 	\begin{center}
+		\includegraphics[width=0.4\textwidth]{profile.png}
+		\caption{An example profile of a stranger without real life information revealed.}
+		\label{fig:fs_profile}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
 		\includegraphics[width=0.4\textwidth]{chat.png}
 		\caption{An example of sending a message to a stranger.}
 		\label{fig:fs_chat}
 	\end{center}
 \end{figure}
 
-After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. By clicking a stranger from the list seen in \ref{fig:encounters}, the user is able to view their public information (gender, age and interests) and send messages or request real life information from them. This information is entered by the user in the onboarding process. In addition to the filled information, the user is able to see the locations of encounters on a map, to make sense of where the other person is doing sports and what sports based on the users own behavior.
+After the user has encountered a familiar stranger enough times, the application will suggest communication between both parties. By clicking a stranger from the list seen in \ref{fig:encounters}, the user is able to view their public information (gender, age and interests) and send messages or request real life information from them as seen in figure \ref{fig:fs_profile}. This information is entered by the user in the onboarding process. In addition to the filled information, the user is able to see the locations of encounters on a map, to make sense of where the other person is doing sports and what sports based on the users own behavior.
 
 Based on the  research from \cite{socialAdHoc} and the interviews conducted for this thesis, displaying this kind of information publicly to the users shouldn't be a problem for the majority of users as users are open about reaching out to strangers and privacy wasn't a concern for the users in the research paper.
 
