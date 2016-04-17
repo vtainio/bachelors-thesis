@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.firebase.client.DataSnapshot
@@ -111,6 +112,33 @@ class ProfileFragment : Fragment() {
                     // Use the fake name because the user hasn't give a right to view the real name.
                     val name = view?.findViewById(R.id.profileName) as TextView
                     name.text = snapshot.child(getString(R.string.firebase_users_encounters_fakename)).value as String
+                    val realName = snapshot.child(getString(R.string.firebase_users_encounters_name)).value as String
+
+                    if (snapshot.child("realname").exists()) {
+                        val requestButton = view?.findViewById(R.id.requestRealName) as Button
+                        requestButton.text = "Real name requested"
+
+                        val strangerEncounterRef = firebase.child(getString(R.string.firebase_users))
+                            .child(userId)
+                            .child(getString(R.string.firebase_users_encounters))
+                            .child(ownId)
+                        strangerEncounterRef.addListenerForSingleValueEvent(object: ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                if (snapshot.exists() && snapshot.child("realname").exists()) {
+                                    requestButton.visibility = Button.GONE
+                                    val realNameLabel = view?.findViewById(R.id.realNameLabel) as TextView
+                                    val realNameField = view?.findViewById(R.id.realName) as TextView
+
+                                    realNameLabel.visibility = Button.VISIBLE
+                                    realNameField.text = realName
+                                }
+                            }
+
+                            override fun onCancelled(error: FirebaseError) {
+                                // Do nothing.
+                            }
+                        })
+                    }
                 }
             }
 
@@ -118,6 +146,14 @@ class ProfileFragment : Fragment() {
                 // Do nothing.
             }
         })
+
+        view?.findViewById(R.id.requestRealName)?.onClick { view -> run {
+            encounterRef.child("realname").setValue(true)
+            val requestButton = view?.findViewById(R.id.requestRealName) as Button
+            requestButton.text = "Real name requested"
+        } }
+
+        // Check the situation for revealing real life.
     }
 
     /**
@@ -127,6 +163,7 @@ class ProfileFragment : Fragment() {
         val chatIntent = Intent(activity, ChatActivity::class.java)
         chatIntent.putExtra("strangerId", arguments.get("userId") as String)
         startActivity(chatIntent)
+
     }
 
     fun handleServerError(error: FirebaseError? = null) {
